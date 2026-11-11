@@ -6,6 +6,10 @@
 2. Tumhare current repo mein `index.html` aur `CNAME` hain; package wali files se unhein replace/overwrite karna. `CNAME` ka content `hisabat.mkm.fan` hai.
 3. GitHub Settings → Pages mein `Deploy from a branch`, branch `main`, folder `/(root)` select karke Save karo.
 
+## Articles aur tiles
+
+Is version mein 11 Arabic articles hain; har article ka alag post page hai, aur har ek homepage aur blog page par apni tile/card se link hota hai. Article text 500+ Arabic words ka hai aur related articles/calculators ke internal links rakhta hai.
+
 ## CNAME do jagah hota hai
 
 - Repo ka `CNAME` file: is ZIP ke root mein hai. Yeh GitHub Pages ko custom domain batata hai.
