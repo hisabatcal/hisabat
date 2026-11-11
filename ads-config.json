@@ -1,0 +1,54 @@
+{
+  "enabled": false,
+  "publisherId": "",
+  "slots": {
+    "header": {
+      "enabled": false,
+      "slotId": ""
+    },
+    "before-calculator-grid": {
+      "enabled": false,
+      "slotId": ""
+    },
+    "after-calculator-grid": {
+      "enabled": false,
+      "slotId": ""
+    },
+    "before-article-grid": {
+      "enabled": false,
+      "slotId": ""
+    },
+    "after-article-grid": {
+      "enabled": false,
+      "slotId": ""
+    },
+    "before-calculator-form": {
+      "enabled": false,
+      "slotId": ""
+    },
+    "after-calculator-form": {
+      "enabled": false,
+      "slotId": ""
+    },
+    "article-top": {
+      "enabled": false,
+      "slotId": ""
+    },
+    "article-bottom": {
+      "enabled": false,
+      "slotId": ""
+    },
+    "page-bottom": {
+      "enabled": false,
+      "slotId": ""
+    },
+    "before-footer": {
+      "enabled": false,
+      "slotId": ""
+    },
+    "after-footer": {
+      "enabled": false,
+      "slotId": ""
+    }
+  }
+}

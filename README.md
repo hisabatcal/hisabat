@@ -1,16 +1,21 @@
-# حسابات — hisabat.mkm.fan
+# موقع حسابات
 
-Static Arabic Islamic calculators (one page, tabs). Host: **GitHub Pages**. Domain: **hisabat.mkm.fan**.
+## النشر
 
-GitHub user: `hisabatcal`
+ارفع محتويات هذا المجلد إلى جذر الفرع `main` في مستودع GitHub، مع الحفاظ على المجلدات الفرعية مثل `assets` و`calculators` و`_posts` و`_layouts`. لا ترفع المجلد الأب `hisabat-site` داخل المستودع. اختر GitHub Pages للنشر من `main` والمجلد `/(root)`.
 
-## Upload
-1. New **public** repo (name e.g. `hisabat` or `hisabatcal.github.io`)
-2. Upload: `index.html`, `CNAME`, `assets/`
-3. Settings → Pages → branch `main` / root
-4. Custom domain: `hisabat.mkm.fan`
-5. mkm DNS: CNAME `hisabat` → `hisabatcal.github.io` (DNS only)
+## المقالات
 
-## Tabs
-Zakat, Udhiyah, Fitr, Mirath, Hajj savings, Mahr, Qard hasan, Sadaqah.
-Removed: Fidya, Tasbeeh, Namaz, Qibla, Hijri, duplicate qurbani page.
+يوجد 11 مقالاً عربياً مستقلاً، لكل منها عنوان ووصف وروابط داخلية وخارجية مرتبطة بموضوعه، ونص يتجاوز 500 كلمة. كما توجد 8 صفحات حاسبات؛ لكل صفحة نموذج وصيغة ودليل عربي خاص بها يتجاوز 500 كلمة ويرتبط بمقالها التفصيلي. تُنشأ صفحات المقالات من القالب `_layouts/post.html` وتُنشر بعد بناء GitHub Pages.
+
+## الإعلانات
+
+تبدأ الإعلانات متوقفة. افتح `admin/ads.html`، وأدخل معرّف الناشر ومعرّفات الوحدات، ثم نزّل `ads-config.json`. يمكن إيقاف كل موضع منفرداً أو إيقاف جميع الإعلانات. المواضع تشمل الترويسة، أعلى وأسفل شبكتي الحاسبات والمقالات، قبل نماذج الحاسبات وبعدها، أعلى المقال وأسفله، وأسفل المحتوى وقبل التذييل وبعده. تُحمّل الوحدات قرب ظهورها على الشاشة. ارفع الملف بعد ذلك إلى المستودع عبر حساب GitHub المخوّل. لا تضع رمزاً سرياً أو شيفرة HTML عشوائية في الإعدادات. يجب رفع `ads.txt` وملف إثبات Google إلى جذر الموقع إذا طلبتهما الخدمة.
+
+## البريد
+
+عنوان التواصل المضاف كما زُوّد به هو `info@hisabat.mkm.fan`. يجب التحقق من إعداد البريد قبل الاعتماد عليه.
+
+## التنبيهات
+
+الحاسبات تقديرية وتعمل في المتصفح. مسائل الزكاة والميراث وغيرها تحتاج إلى مراجعة مختص؛ والنتيجة الآلية ليست فتوى.

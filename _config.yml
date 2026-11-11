@@ -1,10 +1,13 @@
 title: حسابات
 description: حاسبات عربية للتقدير والتثقيف في الزكاة والحج والصدقة وغيرها.
 url: https://hisabat.mkm.fan
+email: info@hisabat.mkm.fan
+logo: /assets/logo.svg
+lang: ar
 baseurl: ""
 permalink: /blog/:title/
 markdown: kramdown
 exclude:
-  - README_ROMAN_URDU.md
+  - README.md
   - admin/README.md
   - node_modules
