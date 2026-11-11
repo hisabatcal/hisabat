@@ -1,15 +1,52 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>لوحة الإدارة | حسابات</title><meta name="description" content="لوحة نشر آمنة تعتمد على تسجيل الدخول وصلاحيات GitHub.">
-<meta name="robots" content="noindex,nofollow"><link rel="canonical" href="https://hisabat.mkm.fan/admin/"><meta property="og:type" content="website"><meta property="og:title" content="لوحة الإدارة | حسابات"><meta property="og:description" content="لوحة نشر آمنة تعتمد على تسجيل الدخول وصلاحيات GitHub."><meta property="og:url" content="https://hisabat.mkm.fan/admin/">
-<meta name="theme-color" content="#12634b"><link rel="stylesheet" href="../assets/site.css"><script src="../ads.js" defer></script>
-</head><body><a class="skip-link" href="#main">انتقل إلى المحتوى</a>
-<header class="site-header"><div class="header-inner"><a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">ح</span><span>حسابات</span></a><nav class="site-nav" aria-label="التنقل الرئيسي"><a href="../index.html">الرئيسية</a><a href="../index.html#calculators">الحاسبات</a><a href="../blog/">المقالات</a><a href="../about.html">عن الموقع</a></nav></div></header><main id="main"><p class="breadcrumbs"><a href="../index.html">الرئيسية</a> ← لوحة الإدارة</p><h1 class="page-title">لوحة إدارة المحتوى</h1><p class="lead">النشر والرفع يتمان عبر GitHub بعد تسجيل الدخول بحساب لديه صلاحية الكتابة إلى المستودع.</p><div class="notice"><strong>حماية:</strong> هذه الصفحة لا تطلب كلمة مرور أو رمز وصول ولا تخزّنه. أزرارها تفتح واجهة GitHub الرسمية؛ لا يستطيع النشر إلا من لديه صلاحية كتابة للمستودع.</div><section class="grid"><article class="card"><span class="icon">م</span><h3>نشر مقال</h3><p>أنشئ ملف Markdown جديداً داخل المجلد <code>_posts</code> باسم مثل <code>2026-11-10-title.md</code>، ثم أضف العنوان والوصف والمحتوى بالعربية.</p><p style="margin-top:14px"><a class="button" href="https://github.com/hisabatcal/hisabat/new/main/_posts">فتح إنشاء مقال في GitHub</a></p></article><article class="card"><span class="icon">ر</span><h3>رفع ملف إلى جذر الموقع</h3><p>ارفع <code>ads.txt</code> أو ملف إثبات Google إلى جذر المستودع، وليس إلى مجلد فرعي. أبقِ اسم الملف كما طلبته الخدمة.</p><p style="margin-top:14px"><a class="button" href="https://github.com/hisabatcal/hisabat/upload/main/">فتح رفع الملفات في GitHub</a></p></article></section><section class="content"><h2>قالب المقال</h2><pre dir="ltr"><code>---
-layout: post
-title: عنوان المقال
-description: وصف قصير بالعربية
----
-
-اكتب محتوى المقال هنا باللغة العربية.</code></pre><h2>بعد الحفظ</h2><p>اضغط <strong>Commit changes</strong> في GitHub. ستبدأ عملية نشر GitHub Pages تلقائياً. قد يستغرق ظهور التغييرات بضع دقائق.</p><p><a href="https://github.com/hisabatcal/hisabat">فتح المستودع</a> · <a href="../disclaimer.html">تنبيه المحتوى</a></p></section><div class="ad-slot" data-ad-slot hidden aria-label="مساحة إعلانية"></div></main><footer class="site-footer"><div class="footer-inner"><span>© ٢٠٢٦ حسابات — أدوات تقديرية للتثقيف.</span><nav class="footer-links" aria-label="روابط التذييل"><a href="../about.html">عن الموقع</a><a href="../contact.html">اتصل بنا</a><a href="../privacy.html">الخصوصية</a><a href="../terms.html">الشروط</a><a href="../disclaimer.html">إخلاء المسؤولية</a><a href="index.html">لوحة الإدارة</a></nav></div></footer></body></html>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>حسابات — لوحة</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap" style="padding:24px 18px">
+  <h1>لوحة المحتوى</h1>
+  <p>GitHub Pages لا يحفظ على السيرفر. حرّر المقال ثم <strong>تنزيل HTML</strong> وارفعه في <code>assets/articles/</code>.</p>
+  <p>كلمة المرور المحلية (المتصفح فقط): <input id="pw" type="password" placeholder="hisabat"> <button class="go" type="button" id="login">دخول</button></p>
+  <div id="ed" style="display:none">
+    <p><select id="file">
+      <option value="basic-zakat-calculator-formulas.html">الزكاة</option>
+      <option value="qurbani-cost-calculator.html">الأضحية</option>
+      <option value="fitrana-zakat-al-fitr-calculator-2026.html">الفطرة</option>
+      <option value="islamic-inheritance-calculator.html">المواريث</option>
+      <option value="why-islamic-inheritance-shares-are-not-equal-explained.html">المواريث شرح</option>
+      <option value="hajj-savings-calculator-2026.html">الحج</option>
+      <option value="how-to-calculate-mahr-in-islam.html">المهر</option>
+      <option value="islamic-loan-qarz-e-hasana-calculator.html">القرض الحسن</option>
+      <option value="sadaqah-calculator.html">الصدقة</option>
+    </select>
+    <button class="go" type="button" id="load">تحميل</button>
+    <button class="go" type="button" id="dl">تنزيل الملف</button>
+    </p>
+    <textarea id="tx" style="width:100%;min-height:70vh;direction:ltr;text-align:left;font-family:monospace;font-size:13px"></textarea>
+  </div>
+</div>
+<script>
+const KEY='hisabat-admin';
+document.getElementById('login').onclick=()=>{
+  if(document.getElementById('pw').value==='hisabat' || localStorage.getItem(KEY)==='1'){
+    localStorage.setItem(KEY,'1');
+    document.getElementById('ed').style.display='block';
+  } else alert('كلمة خاطئة — الافتراضي hisabat غيّرها بعد الرفع');
+};
+if(localStorage.getItem(KEY)==='1') document.getElementById('ed').style.display='block';
+document.getElementById('load').onclick=()=>{
+  const f=document.getElementById('file').value;
+  fetch('../assets/articles/'+f).then(r=>r.text()).then(t=>document.getElementById('tx').value=t);
+};
+document.getElementById('dl').onclick=()=>{
+  const f=document.getElementById('file').value;
+  const blob=new Blob([document.getElementById('tx').value],{type:'text/html'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=f; a.click();
+};
+</script>
+</body>
+</html>
