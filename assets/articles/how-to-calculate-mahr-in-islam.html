@@ -1,0 +1,359 @@
+<h2>Mehr (Mahr) Calculator Islamic Bridal Gift Guide 2026</h2>
+<p>Mehr (Mahr) is a mandatory gift from the husband to the wife at the time of Nikah (Islamic marriage). It is the wife's absolute right given by Allah not a price, not a dowry, but a symbol of respect, commitment, and financial security. This calculator helps you determine an appropriate Mehr amount based on Mahr Fatimi, gold/silver standards, regional customs, and your financial capacity.</p>
+<div style="background: linear-gradient(135deg,#1b7a3d,#228B22); border-radius: 15px; padding: 30px; color: #fff; text-align: center; margin: 25px 0;">
+<div style="font-size: 28px; font-weight: 900; margin-bottom: 8px;">Mehr Amount Calculator</div>
+<div style="font-size: 14px; opacity: 0.85;">Calculate Mehr based on Mahr Fatimi, Gold, Silver, or Custom Amount</div>
+</div>
+<div style="background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 25px;">
+<h3 style="margin: 0 0 18px; font-size: 18px; font-weight: 900; color: #1b7a3d; border-bottom: 3px solid #1b7a3d; padding-bottom: 10px;">Select Mehr Type</h3>
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">Mehr Standard</label><select id="mh-type" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; background: #fff; box-sizing: border-box;">
+<option selected="selected" value="fatimi">Mahr Fatimi (Sunnah Standard — Most Recommended)</option>
+<option value="gold">Gold Based (Custom Weight)</option>
+<option value="silver">Silver Based (Custom Weight)</option>
+<option value="cash">Cash / Fixed Amount</option>
+<option value="azwaj">Mahr of Azwaj-e-Mutahharaat (Wives of Prophet PBUH)</option>
+<option value="minimum">Minimum Mehr (Hanafi)</option>
+</select></div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">العملة</label><select id="mh-currency" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; background: #fff; box-sizing: border-box;">
+<option selected="selected" value="PKR">PKR (Pakistan)</option>
+<option value="INR">INR (India)</option>
+<option value="USD">USD (USA)</option>
+<option value="GBP">GBP (UK)</option>
+<option value="AED">AED (UAE)</option>
+<option value="SAR">SAR (Saudi Arabia)</option>
+</select></div>
+<div id="mh-goldprice-row" style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">Current Gold Price per Gram (24K)</label> <input id="mh-goldprice" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; box-sizing: border-box;" type="number" value="23000"></div>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+<div id="mh-silverprice-row" style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">Current Silver Price per Gram</label> <input id="mh-silverprice" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; box-sizing: border-box;" type="number" value="280"></div>
+<div id="mh-weight-row" style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">Gold/Silver Weight (grams)</label> <input id="mh-weight" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; box-sizing: border-box;" min="1" type="number" value="10"></div>
+</div>
+<div id="mh-cash-row" style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">Custom Mehr Amount</label> <input id="mh-cash" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; box-sizing: border-box;" type="number" value="100000"></div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">Payment Type</label><select id="mh-payment" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; background: #fff; box-sizing: border-box;">
+<option value="muajjal">Mehr Muajjal (Paid at time of Nikah — Recommended)</option>
+<option value="muwajjal">Mehr Muwajjal (Deferred — paid later on demand)</option>
+<option value="split">Split (Part now + Part deferred)</option>
+</select></div>
+<div id="mh-split-row" style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">Percentage Paid Now (%)</label> <input id="mh-split-pct" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; box-sizing: border-box;" max="99" min="1" type="number" value="50"></div>
+</div>
+<button style="width: 100%; padding: 14px; background: #1b7a3d; color: #fff; border: none; border-radius: 10px; font-size: 16px; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px;">CALCULATE MEHR</button>
+<div id="mh-result" style="margin-top: 25px; display: none;">
+<div style="padding: 25px; background: linear-gradient(135deg,#f0faf3,#e8f5e9); border-radius: 12px; border: 2px solid #1b7a3d; text-align: center; margin-bottom: 20px;">
+<div id="mh-type-label" style="font-size: 14px; font-weight: bold; color: #145a2e;">Mehr Amount</div>
+<div id="mh-total" style="font-size: 36px; font-weight: 900; color: #1b7a3d; margin: 10px 0;"></div>
+<div id="mh-detail" style="font-size: 13px; color: #666; line-height: 1.8;"></div>
+</div>
+<div id="mh-split-result" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+<div style="background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; border-top: 4px solid #1b7a3d;">
+<div style="font-size: 12px; font-weight: bold; color: #666; text-transform: uppercase;">Paid Now (Muajjal)</div>
+<div id="mh-now" style="font-size: 24px; font-weight: 900; color: #1b7a3d; margin: 8px 0;"></div>
+</div>
+<div style="background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; border-top: 4px solid #d4a745;">
+<div style="font-size: 12px; font-weight: bold; color: #666; text-transform: uppercase;">Deferred (Muwajjal)</div>
+<div id="mh-later" style="font-size: 24px; font-weight: 900; color: #d4a745; margin: 8px 0;"></div>
+</div>
+</div>
+<div style="background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 20px;">
+<h4 style="margin: 0 0 15px; font-size: 16px; font-weight: 800; color: #1b7a3d;">Mehr Comparison — All Standards</h4>
+<div id="mh-compare"></div>
+</div>
+<div style="background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+<h4 style="margin: 0 0 15px; font-size: 16px; font-weight: 800; color: #1b7a3d;">Calculation Formula</h4>
+<div id="mh-formula" style="font-family: monospace; font-size: 14px; line-height: 2; color: #333;"></div>
+</div>
+<div style="font-size: 12px; color: #999; font-style: italic; text-align: center; margin-top: 15px;">Reference: Quran 4:4 — "Give women their Mehr as a free gift."</div>
+</div>
+</div>
+<div style="background: linear-gradient(135deg,#1b7a3d,#228B22); border-radius: 15px; padding: 30px; color: #fff; text-align: center; margin: 25px 0;">
+<div style="font-size: 28px; font-weight: 900; margin-bottom: 8px;">Gold to Mehr Converter</div>
+<div style="font-size: 14px; opacity: 0.85;">Convert any gold jewelry weight into Mehr cash value — supports all karats</div>
+</div>
+<div style="background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 25px;">
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px;">
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">Gold Weight (grams)</label> <input id="gc-weight" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; box-sizing: border-box;" min="0.1" step="0.1" type="number" value="10"></div>
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">قيراط</label><select id="gc-karat" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; background: #fff; box-sizing: border-box;">
+<option value="24">24K (99.9% Pure)</option>
+<option selected="selected" value="22">22K (91.7% Pure)</option>
+<option value="21">21K (87.5% Pure)</option>
+<option value="18">18K (75.0% Pure)</option>
+</select></div>
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">24K Gold Price/gram</label> <input id="gc-price" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; box-sizing: border-box;" type="number" value="23000"></div>
+</div>
+<button style="width: 100%; padding: 14px; background: #d4a745; color: #000; border: none; border-radius: 10px; font-size: 16px; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 1px;">CONVERT TO CASH VALUE</button>
+<div id="gc-result" style="margin-top: 20px; padding: 25px; background: linear-gradient(135deg,#f0faf3,#e8f5e9); border-radius: 12px; border: 2px solid #1b7a3d; text-align: center; display: none;">
+<div style="font-size: 14px; font-weight: bold; color: #145a2e;">Gold Mehr Value</div>
+<div id="gc-total" style="font-size: 36px; font-weight: 900; color: #1b7a3d; margin: 10px 0;"></div>
+<div id="gc-detail" style="font-size: 13px; color: #666; line-height: 1.8;"></div>
+</div>
+</div>
+<h2>What is Mahr Fatimi?</h2>
+<p>Mahr Fatimi is the Mehr amount that Hazrat Ali (RA) gave to Hazrat Fatimah (RA), the beloved daughter of the Prophet Muhammad (PBUH), at the time of their Nikah. It is considered the most blessed and Sunnah standard for Mehr.</p>
+<div style="background: #f0faf3; border: 2px solid #1b7a3d; border-radius: 12px; padding: 25px; margin: 20px 0;">
+<h3 style="color: #1b7a3d; margin-top: 0;">Mahr Fatimi Details</h3>
+<div style="background: #fff; padding: 20px; border-radius: 8px; margin: 10px 0; font-family: monospace; font-size: 15px; line-height: 2.2;"><strong>Historical Amount:</strong><br>Mahr Fatimi = 480 Dirhams of Silver<br>1 Dirham = approximately 3.0618 grams of silver<br><br><strong>Total Silver Weight:</strong><br>480 x 3.0618 = <strong style="color: #1b7a3d;">1,469.664 grams of silver</strong><br><br><strong>In Tola:</strong><br>1,469.664 / 11.664 = approximately 126 Tola<br><br><strong>Current Cash Value (2026 Est.):</strong><br>1,469.664 grams x PKR 280/gram = <strong style="color: #1b7a3d;">PKR 4,11,506 (approx)</strong><br><br><em>Note: The value changes with silver prices. Always use current market rate.</em></div>
+</div>
+<h2>Mehr of the Wives of the Prophet (PBUH)</h2>
+<table>
+<tbody>
+<tr>
+<th>Wife (RA)</th>
+<th>Mehr Amount</th>
+<th>Silver Equivalent</th>
+<th>Approx PKR Value (2026)</th>
+</tr>
+<tr>
+<td><strong>Hazrat Khadijah (RA)</strong></td>
+<td>20 camels (given by Prophet PBUH)</td>
+<td>Varies</td>
+<td>Very high value</td>
+</tr>
+<tr>
+<td><strong>Most Wives of Prophet (PBUH)</strong></td>
+<td>500 Dirhams / 12.5 Uqiyah</td>
+<td>1,530.9 grams silver</td>
+<td>Approx PKR 4,28,652</td>
+</tr>
+<tr>
+<td><strong>Hazrat Umm Habibah (RA)</strong></td>
+<td>4,000 Dirhams</td>
+<td>12,247.2 grams silver</td>
+<td>Approx PKR 34,29,216</td>
+</tr>
+<tr>
+<td><strong>Hazrat Fatimah (RA)</strong></td>
+<td>480 Dirhams (from Ali RA)</td>
+<td>1,469.664 grams silver</td>
+<td>Approx PKR 4,11,506</td>
+</tr>
+</tbody>
+</table>
+<div style="background: #fff3e0; border: 2px solid #ff9800; border-radius: 10px; padding: 15px; margin: 20px 0;"><strong style="color: #e65100;">Important Note:</strong> The Prophet (PBUH) generally set Mehr at moderate amounts. He said: "The best marriage is that which is made easiest" (Abu Dawud 2117). Excessive Mehr that burdens the husband is discouraged. The purpose of Mehr is to honor the wife, not to create financial hardship.</div>
+<h2>Mehr Amounts — Quick Reference</h2>
+<table>
+<tbody>
+<tr>
+<th>Standard</th>
+<th>Basis</th>
+<th>Silver (grams)</th>
+<th>Gold (grams)</th>
+<th>PKR (2026 Est.)</th>
+</tr>
+<tr>
+<td><strong>Minimum (Hanafi)</strong></td>
+<td>10 Dirhams</td>
+<td>30.618g</td>
+<td>N/A</td>
+<td>Approx PKR 8,573</td>
+</tr>
+<tr>
+<td><strong>Mahr Fatimi</strong></td>
+<td>480 Dirhams</td>
+<td>1,469.664g</td>
+<td>N/A</td>
+<td>Approx PKR 4,11,506</td>
+</tr>
+<tr>
+<td><strong>Mahr of Most Azwaj</strong></td>
+<td>500 Dirhams</td>
+<td>1,530.9g</td>
+<td>N/A</td>
+<td>Approx PKR 4,28,652</td>
+</tr>
+<tr>
+<td><strong>Common Pakistan (Gold)</strong></td>
+<td>1 Tola Gold</td>
+<td>N/A</td>
+<td>11.664g</td>
+<td>Approx PKR 2,68,272</td>
+</tr>
+<tr>
+<td><strong>Common Pakistan (Gold)</strong></td>
+<td>5 Tola Gold</td>
+<td>N/A</td>
+<td>58.32g</td>
+<td>Approx PKR 13,41,360</td>
+</tr>
+<tr>
+<td><strong>Common Pakistan (Gold)</strong></td>
+<td>10 Tola Gold</td>
+<td>N/A</td>
+<td>116.64g</td>
+<td>Approx PKR 26,82,720</td>
+</tr>
+<tr>
+<td><strong>Common India</strong></td>
+<td>10 grams Gold</td>
+<td>N/A</td>
+<td>10g</td>
+<td>Approx INR 72,000</td>
+</tr>
+<tr>
+<td><strong>Common Arab Countries</strong></td>
+<td>Cash based</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>SAR 10,000 - 50,000+</td>
+</tr>
+</tbody>
+</table>
+<h2>Mehr Calculation Formulas</h2>
+<h3>Mahr Fatimi Formula</h3>
+<div style="background: #f0faf3; padding: 20px; border-radius: 10px; margin: 15px 0; font-family: monospace; font-size: 15px; line-height: 2.2;"><strong style="font-size: 18px; color: #1b7a3d;">M<sub>fatimi</sub> = 480 x 3.0618 x P<sub>silver</sub></strong><br><br>المكان:<br>480 = Number of Dirhams<br>3.0618 = Weight of 1 Dirham in grams<br>P<sub>silver</sub> = Current silver price per gram<br><br>M<sub>fatimi</sub> = 1,469.664 x P<sub>silver</sub></div>
+<h3>Gold Based Mehr Formula</h3>
+<div style="background: #f0faf3; padding: 20px; border-radius: 10px; margin: 15px 0; font-family: monospace; font-size: 15px; line-height: 2.2;"><strong style="font-size: 18px; color: #1b7a3d;">M<sub>gold</sub> = W x (K / 24) x P<sub>gold</sub></strong><br><br>المكان:<br>W = Total gold weight in grams<br>K = Karat (24K, 22K, 21K, 18K)<br>P<sub>gold</sub> = Current 24K gold price per gram<br><br><strong>Tola Conversion:</strong><br>1 Tola = 11.664 grams<br>M<sub>tola</sub> = Tola x 11.664 x P<sub>gold</sub></div>
+<h3>Silver Based Mehr Formula</h3>
+<div style="background: #f0faf3; padding: 20px; border-radius: 10px; margin: 15px 0; font-family: monospace; font-size: 15px; line-height: 2.2;"><strong style="font-size: 18px; color: #1b7a3d;">M<sub>silver</sub> = W x P<sub>silver</sub></strong><br><br>المكان:<br>W = Silver weight in grams<br>P<sub>silver</sub> = Current silver price per gram</div>
+<h3>Split Mehr Formula</h3>
+<div style="background: #f0faf3; padding: 20px; border-radius: 10px; margin: 15px 0; font-family: monospace; font-size: 15px; line-height: 2.2;"><strong style="font-size: 18px; color: #1b7a3d;">M<sub>now</sub> = M<sub>الإجمالي</sub> x (Split% / 100)</strong><br><strong style="font-size: 18px; color: #d4a745;">M<sub>later</sub> = M<sub>الإجمالي</sub> - M<sub>now</sub></strong><br><br>Example: Total Mehr = PKR 5,00,000 | Split = 40% now<br>M<sub>now</sub> = 5,00,000 x 0.40 = PKR 2,00,000<br>M<sub>later</sub> = 5,00,000 - 2,00,000 = PKR 3,00,000</div>
+<h2>Solved Examples</h2>
+<h3>Example 1: Mahr Fatimi Calculation</h3>
+<p>Silver price: PKR 280/gram. Calculate Mahr Fatimi value.</p>
+<div style="background: #f5f5f5; border-radius: 10px; padding: 20px; margin: 15px 0;">
+<div style="background: #fff; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 14px; line-height: 2.2;">Mahr Fatimi = 480 Dirhams<br>1 Dirham = 3.0618 grams silver<br>Total silver = 480 x 3.0618 = 1,469.664 grams<br><br>Current silver price = PKR 280/gram<br>M = 1,469.664 x 280<br><strong style="color: #1b7a3d; font-size: 18px;">M = PKR 4,11,506</strong><br><br>This is the Sunnah standard — blessed and recommended.</div>
+</div>
+<h3>Example 2: Gold Based — 5 Tola 22K</h3>
+<p>Mehr fixed at 5 Tola of 22K gold. Gold price: PKR 23,000/gram (24K).</p>
+<div style="background: #f5f5f5; border-radius: 10px; padding: 20px; margin: 15px 0;">
+<div style="background: #fff; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 14px; line-height: 2.2;">Weight = 5 Tola = 5 x 11.664 = 58.32 grams<br>Pure gold = 58.32 x (22/24) = 58.32 x 0.917 = 53.48g<br>Value = 53.48 x 23,000<br><strong style="color: #1b7a3d; font-size: 18px;">M = PKR 12,30,040</strong><br><br>Or if paying in 22K gold price (approx PKR 21,091/gram):<br>M = 58.32 x 21,091 = PKR 12,30,027 (same result)</div>
+</div>
+<h3>Example 3: Split Mehr — Part Now, Part Later</h3>
+<p>Total Mehr: PKR 8,00,000. Agreement: 30% paid at Nikah, 70% deferred.</p>
+<div style="background: #f5f5f5; border-radius: 10px; padding: 20px; margin: 15px 0;">
+<div style="background: #fff; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 14px; line-height: 2.2;">Total = PKR 8,00,000<br>Muajjal (now) = 8,00,000 x 30% = <strong style="color: #1b7a3d;">PKR 2,40,000</strong><br>Muwajjal (deferred) = 8,00,000 x 70% = <strong style="color: #d4a745;">PKR 5,60,000</strong><br><br>The deferred Mehr remains a DEBT on the husband until paid.<br>Wife can demand it at any time. It must be paid from estate if husband dies before paying.</div>
+</div>
+<h3>Example 4: Minimum Mehr (Hanafi)</h3>
+<p>According to Hanafi fiqh, minimum Mehr is 10 Dirhams of silver.</p>
+<div style="background: #f5f5f5; border-radius: 10px; padding: 20px; margin: 15px 0;">
+<div style="background: #fff; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 14px; line-height: 2.2;">10 Dirhams = 10 x 3.0618 = 30.618 grams silver<br>Silver price = PKR 280/gram<br>M<sub>min</sub> = 30.618 x 280<br><strong style="color: #1b7a3d; font-size: 18px;">M<sub>min</sub> = PKR 8,573</strong><br><br>Note: This is the absolute minimum. Setting Mehr this low without good reason is discouraged. The Prophet (PBUH) encouraged fair and reasonable Mehr.</div>
+</div>
+<h3>Example 5: USA — Dollar Based Calculation</h3>
+<p>Mahr Fatimi in USD. Silver price: $0.85/gram.</p>
+<div style="background: #f5f5f5; border-radius: 10px; padding: 20px; margin: 15px 0;">
+<div style="background: #fff; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 14px; line-height: 2.2;">M<sub>fatimi</sub> = 1,469.664 x $0.85<br><strong style="color: #1b7a3d; font-size: 18px;">M<sub>fatimi</sub> = $1,249</strong><br><br>Many US communities set Mehr between $5,000 - $25,000 in cash<br>or 2-5 ounces of gold ($4,000 - $10,000)</div>
+</div>
+<h2>Complete Mehr Rules in Islam</h2>
+<table>
+<tbody>
+<tr>
+<th>القاعدة</th>
+<th>التفصيل</th>
+</tr>
+<tr>
+<td><strong>Mehr is Farz</strong></td>
+<td>Mehr is mandatory in every Nikah. A marriage without Mehr agreement is still valid but Mehr-e-Mithl (equivalent Mehr) becomes automatically due.</td>
+</tr>
+<tr>
+<td><strong>Wife's Exclusive Right</strong></td>
+<td>Mehr belongs ONLY to the wife. No one — not her father, brother, or in-laws — can take it. It is her personal property.</td>
+</tr>
+<tr>
+<td><strong>Cannot Be Zero</strong></td>
+<td>Mehr cannot be waived at the time of Nikah. If not specified, Mehr-e-Mithl (equivalent to her peers) becomes due.</td>
+</tr>
+<tr>
+<td><strong>No Maximum Limit</strong></td>
+<td>There is no upper limit on Mehr. However, excessive Mehr that burdens the husband is discouraged. Umar (RA) tried to limit it but was corrected by a woman quoting Quran 4:20.</td>
+</tr>
+<tr>
+<td><strong>Minimum (Hanafi)</strong></td>
+<td>10 Dirhams of silver (approximately 30.618 grams = ~PKR 8,573). Shafi school has no fixed minimum.</td>
+</tr>
+<tr>
+<td><strong>Can Be Anything of Value</strong></td>
+<td>Mehr can be cash, gold, silver, property, services, or even teaching Quran (based on Hadith). It must be something of determinable value.</td>
+</tr>
+<tr>
+<td><strong>Prompt vs Deferred</strong></td>
+<td>Mehr Muajjal (prompt): paid at Nikah. Mehr Muwajjal (deferred): paid later on demand or at divorce/death. Both are valid. Prompt is preferred.</td>
+</tr>
+<tr>
+<td><strong>Debt Until Paid</strong></td>
+<td>Unpaid Mehr is a DEBT on the husband. It must be paid before inheritance distribution if husband dies. Wife is a creditor.</td>
+</tr>
+<tr>
+<td><strong>Wife Can Forgive</strong></td>
+<td>The wife can voluntarily forgive part or all of the Mehr (Quran 4:4). But this must be genuine — no pressure from husband or in-laws.</td>
+</tr>
+<tr>
+<td><strong>Divorce Before Consummation</strong></td>
+<td>If divorced BEFORE consummation: wife gets HALF the Mehr. If after consummation: she gets FULL Mehr. (Quran 2:237)</td>
+</tr>
+<tr>
+<td><strong>Khula (Wife-Initiated Divorce)</strong></td>
+<td>In Khula, wife may return Mehr to husband as compensation for dissolving the marriage. This is her choice.</td>
+</tr>
+<tr>
+<td><strong>Written Agreement</strong></td>
+<td>Mehr amount should be clearly stated in the Nikah Nama (marriage contract) and signed by both parties and witnesses.</td>
+</tr>
+</tbody>
+</table>
+<h2>Mehr-e-Mithl — When Mehr is Not Specified</h2>
+<p>If Mehr amount was not discussed or agreed upon at the time of Nikah, Islamic law assigns <strong>Mehr-e-Mithl</strong> — an amount equivalent to what women of similar status (family, education, beauty, age) in the bride's family typically receive. Factors considered include:</p>
+<table>
+<tbody>
+<tr>
+<th>Factor</th>
+<th>How It Affects Mehr-e-Mithl</th>
+</tr>
+<tr>
+<td><strong>Family Status</strong></td>
+<td>What her sisters, cousins, and aunts received as Mehr</td>
+</tr>
+<tr>
+<td><strong>Education</strong></td>
+<td>Higher education may increase Mehr-e-Mithl</td>
+</tr>
+<tr>
+<td><strong>Beauty/Qualities</strong></td>
+<td>Considered in classical fiqh as a factor</td>
+</tr>
+<tr>
+<td><strong>Age</strong></td>
+<td>Youth and age are considered factors</td>
+</tr>
+<tr>
+<td><strong>Regional Custom</strong></td>
+<td>Local customs and standards are considered</td>
+</tr>
+<tr>
+<td><strong>Time Period</strong></td>
+<td>Current market values and economic conditions</td>
+</tr>
+</tbody>
+</table>
+<h2>Quranic References About Mehr</h2>
+<blockquote><strong>Allah says:</strong> "And give the women (upon marriage) their bridal gift (Mehr) graciously. But if they give up willingly to you anything of it, then take it in satisfaction and ease." <br><br><em>— Quran 4:4</em></blockquote>
+<blockquote><strong>Allah says:</strong> "And if you want to replace one wife with another and you have given one of them a great amount (of Mehr), do not take back from it anything. Would you take it in injustice and manifest sin?" <br><br><em>— Quran 4:20</em></blockquote>
+<blockquote><strong>Allah says:</strong> "And there is no blame upon you if you divorce women you have not touched nor specified for them an obligation (Mehr). But give them a gift of compensation — the wealthy according to his capability and the poor according to his capability — a provision according to what is acceptable, a duty upon the doers of good." <br><br><em>— Quran 2:236</em></blockquote>
+<blockquote><strong>Allah says:</strong> "And if you divorce them before you have touched them and you have already specified for them an obligation (Mehr), then give half of what you specified." <br><br><em>— Quran 2:237</em></blockquote>
+<h2>Hadith References About Mehr</h2>
+<blockquote><strong>The Prophet (PBUH) said:</strong> "The best marriage is that which is made easiest." <br><br><em>— Sunan Abu Dawud 2117</em></blockquote>
+<blockquote><strong>The Prophet (PBUH) said to a man:</strong> "Go and look for something, even if it is a ring of iron (to give as Mehr)." When he could not find anything, the Prophet said: "Do you know anything of the Quran?" He said: "Yes, such and such Surahs." The Prophet said: "I have married her to you for what you know of the Quran." <br><br><em>— Sahih Bukhari 5087, Sahih Muslim 1425</em></blockquote>
+<blockquote><strong>Umar ibn al-Khattab (RA) said:</strong> "Do not make the Mehr of women expensive, for if it were a sign of honor in this world or piety before Allah, the Prophet (PBUH) would have been most worthy of it. But he did not give any of his wives or accept for any of his daughters more than twelve Uqiyah (500 Dirhams)." <br><br><em>— Sunan Abu Dawud 2106, Sunan Tirmidhi 1114</em></blockquote>
+<blockquote><strong>Anas ibn Malik (RA) narrated:</strong> "The Prophet (PBUH) saw traces of yellow perfume on Abdur-Rahman ibn Awf and asked: 'What is this?' He said: 'I married a woman for a Nawat (date-stone weight) of gold.' The Prophet said: 'May Allah bless you. Give a Walima (feast), even if with one sheep.'" <br><br><em>— Sahih Bukhari 5153, Sahih Muslim 1427</em></blockquote>
+<h2>Frequently Asked Questions</h2>
+<p><strong>Q: Is Mehr the same as dowry?</strong></p>
+<p>A: No. Mehr is paid by the HUSBAND to the WIFE. Dowry (jahaiz) is given by the bride's family to the groom — which has no basis in Islam and is a cultural practice that often burdens the bride's family. Islam only requires Mehr from husband to wife.</p>
+<p><strong>Q: Can Mehr be increased after Nikah?</strong></p>
+<p>A: Yes. The husband can voluntarily increase the Mehr at any time after Nikah. This is a generous act and is rewarded. However, the wife cannot demand an increase after the contract is finalized unless both agree.</p>
+<p><strong>Q: What if the husband refuses to pay Mehr?</strong></p>
+<p>A: Refusing to pay Mehr is a major sin. The wife has full legal and Islamic right to demand it. She can take the matter to an Islamic court (Dar ul Qaza) or civil court. Mehr is her absolute right given by Allah.</p>
+<p><strong>Q: Is gold jewelry given at Nikah counted as Mehr?</strong></p>
+<p>A: Only if it was explicitly stated as Mehr in the Nikah contract. Gold given as a gift (tohfa) is separate from Mehr. The Nikah Nama should clearly state what constitutes the Mehr.</p>
+<p><strong>Q: Can Mehr be property, a house, or land?</strong></p>
+<p>A: Yes. Mehr can be any item of determinable value — cash, gold, silver, property, land, car, shares, or even a service like teaching Quran. It must be clearly specified and agreed upon.</p>
+<p><strong>Q: What happens to unpaid Mehr if husband dies?</strong></p>
+<p>A: Unpaid Mehr is a DEBT that must be paid from the husband's estate BEFORE inheritance distribution. The wife is a creditor. After Mehr is paid, she also receives her inheritance share (1/4 or 1/8).</p>
+<p><strong>Q: Should Mehr be high or low?</strong></p>
+<p>A: The Prophet (PBUH) encouraged moderate Mehr that honors the wife without burdening the husband. Very high Mehr can delay marriages and create resentment. Very low Mehr may not adequately honor the wife. Mahr Fatimi (~PKR 4 lakh) is considered a balanced Sunnah standard.</p>
+<p><strong>Q: Can the wife forgive (maaf) the Mehr?</strong></p>
+<p>A: Yes, but ONLY if done genuinely and voluntarily without any pressure. Quran 4:4 specifically says "But if they give up willingly to you anything of it, then take it." The key word is "willingly" — any pressure invalidates the forgiveness.</p>
+<div style="background: #fff3e0; border: 2px solid #ff9800; border-radius: 12px; padding: 20px; margin: 25px 0;">
+<h3 style="color: #e65100; margin-top: 0;">إخلاء مسؤولية مهم</h3>
+<p style="font-size: 13px; line-height: 1.7;">Gold and silver prices shown are approximate estimates for 2026 and change daily based on international markets. Always use the current market rate at the time of Nikah for accurate Mehr calculation. Regional customs and family traditions may influence Mehr amounts but should not override Islamic principles.</p>
+<p style="font-size: 13px; line-height: 1.7;">For specific rulings on Mehr in your situation, consult a qualified Mufti or Islamic scholar. Different schools of thought (Hanafi, Shafi, Maliki, Hanbali) may have slight variations in Mehr rulings.</p>
+<p style="font-size: 13px; line-height: 1.7; margin-bottom: 0;"><strong>Quranic References:</strong> Surah An-Nisa 4:4, 4:20, 4:24, 4:25 | Surah Al-Baqarah 2:236-237<br><strong>Hadith:</strong> Sahih Bukhari 5087, 5153 | Sahih Muslim 1425, 1427 | Abu Dawud 2106, 2117 | Tirmidhi 1114</p>
+</div>

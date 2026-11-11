@@ -1,0 +1,399 @@
+<h2>حاسبة الفطر 2026</h2>
+<p>الفطرانة (صدقة الفطر) هي جمعية خيرية إلزامية يجب على كل مسلم دفعها قبل عيد الفطر. يطهر الصائم من الكلام الخامل والقصور خلال شهر رمضان، ويوفر الطعام للفقراء حتى يتمكنوا أيضًا من الاحتفال بالعيد. تساعدك هذه الآلة الحاسبة على تحديد كمية الفطرانا بالضبط لك ولعائلتك بأكملها بناءً على أسعار السلع الحالية في بلدك.</p>
+<div style="background: linear-gradient(135deg,#1b7a3d,#228B22); border-radius: 15px; padding: 30px; color: #fff; text-align: center; margin: 25px 0;">
+<div style="font-size: 28px; font-weight: 900; margin-bottom: 8px;">حاسبة الفطرانا السريعة</div>
+<div style="font-size: 14px; opacity: 0.85;">أدخل التفاصيل الخاصة بك أدناه وحساب الفطرانة على الفور لشهر رمضان 2026</div>
+</div>
+<div style="background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 25px;">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">عدد افراد الاسرة المعيشية</label> <input id="fitr-members" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; box-sizing: border-box;" max="99" min="1" type="number" value="1" placeholder="Total persons"></div>
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">نوع السلعة</label><select id="fitr-commodity" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; background: #fff; box-sizing: border-box;">
+<option value="wheat">القمح / الجندوم (الأكثر شيوعًا)</option>
+<option value="barley">الشعير / الجاو</option>
+<option value="dates">التواريخ / الخجور</option>
+<option value="raisins">الزبيب / الكشميش</option>
+<option value="cheese">جبن / بانير (أكيت)</option>
+</select></div>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">السعر للكيلو جرام</label> <input id="fitr-price" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; box-sizing: border-box;" type="number" value="150" placeholder="Current market price per kg"></div>
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">البلد/منطقة العملة</label><select id="fitr-currency" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; background: #fff; box-sizing: border-box;">
+<option selected="selected" value="PKR">باكستان (PKR)</option>
+<option value="INR">الهند (روبية هندية)</option>
+<option value="USD">الولايات المتحدة الأمريكية (بالدولار الأمريكي)</option>
+<option value="GBP">المملكة المتحدة (جنيه إسترليني)</option>
+<option value="AED">الإمارات العربية المتحدة (بالدرهم الإماراتي</option>
+<option value="SAR">المملكة العربية السعودية ريال سعودي</option>
+<option value="BDT">بنغلاديش (BDT)</option>
+<option value="MYR">ماليزيا (رينغيت ماليزي)</option>
+</select></div>
+</div>
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">معيار الوزن (Sa' Measurement)</label><select id="fitr-weight" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; background: #fff; box-sizing: border-box;">
+<option selected="selected" value="3.5">1 Sa' = 3.5 كجم (قياسي / موصى به)</option>
+<option value="3.0">1 Sa' = 3.0 KG (بعض العلماء)</option>
+<option value="2.5">نصف قمح صاع = 2.5 كجم (الحد الأدنى الحنفي للقمح)</option>
+<option value="2.176">نصف سع = 2.176 كجم (حنفي صارم للقمح فقط)</option>
+</select></div>
+<button style="width: 100%; padding: 14px; background: #1b7a3d; color: #fff; border: none; border-radius: 10px; font-size: 16px; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px;">حساب FITRANA</button>
+<div id="fitr-result" style="margin-top: 20px; padding: 25px; background: linear-gradient(135deg,#f0faf3,#e8f5e9); border-radius: 12px; border: 2px solid #1b7a3d; text-align: center; display: none;">
+<div style="font-size: 16px; font-weight: bold; color: #145a2e;">إجمالي مبلغ الفطرانة</div>
+<div id="fitr-total" style="font-size: 36px; font-weight: 900; color: #1b7a3d; margin: 10px 0;">0</div>
+<div id="fitr-detail" style="font-size: 13px; color: #666; margin-top: 5px;"></div>
+<div id="fitr-formula-show" style="font-size: 13px; color: #666; margin-top: 5px;"></div>
+<div id="fitr-weight-total" style="font-size: 13px; color: #666; margin-top: 5px;"></div>
+<div style="font-size: 12px; color: #999; font-style: italic; margin-top: 15px; padding-top: 10px; border-top: 1px solid #ccc;">المرجع: صحيح بخاري 1503، صحيح مسلم 984</div>
+</div>
+</div>
+<div style="background: linear-gradient(135deg,#1b7a3d,#228B22); border-radius: 15px; padding: 30px; color: #fff; text-align: center; margin: 25px 0;">
+<div style="font-size: 28px; font-weight: 900; margin-bottom: 8px;">حاسبة الفطر العائلي</div>
+<div style="font-size: 14px; opacity: 0.85;">إضافة كل فرد من أفراد الأسرة بشكل فردي مع الاسم والواجب/حالة الإعفاء</div>
+</div>
+<div style="background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 25px;">
+<p style="font-size: 13px; color: #666; margin-bottom: 15px;">الفطرانة هي واجب على كل مسلم — رجل وامرأة وطفل (حتى حديثي الولادة) وكبار السن والخدم. يدفع رب الأسرة لجميع المعالين. أضف كل شخص أدناه وضع علامة على أنه واجب أو معفى.</p>
+<div id="fitr-family-list">
+<div id="fm-1" style="display: flex; align-items: center; gap: 10px; padding: 10px; background: #f9f9f9; border-radius: 8px; margin-bottom: 8px; flex-wrap: wrap;"><input style="flex: 1; min-width: 120px; padding: 8px 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 14px; box-sizing: border-box;" type="text" value="Self (Head of Family)" placeholder="Name"><select class="fm-status" style="padding: 8px 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 14px; background: #fff;">
+<option value="wajib">الواجب</option>
+<option value="exempt">الإعفاء</option>
+</select></div>
+</div>
+<div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;"><button style="flex: 1; min-width: 90px; padding: 10px; background: #1b7a3d; color: #fff; border: none; border-radius: 8px; font-size: 12px; font-weight: bold; cursor: pointer;">الزوجة</button> <button style="flex: 1; min-width: 90px; padding: 10px; background: #1b7a3d; color: #fff; border: none; border-radius: 8px; font-size: 12px; font-weight: bold; cursor: pointer;">ابن</button> <button style="flex: 1; min-width: 90px; padding: 10px; background: #1b7a3d; color: #fff; border: none; border-radius: 8px; font-size: 12px; font-weight: bold; cursor: pointer;">ابنة</button> <button style="flex: 1; min-width: 90px; padding: 10px; background: #1b7a3d; color: #fff; border: none; border-radius: 8px; font-size: 12px; font-weight: bold; cursor: pointer;">الأب</button> <button style="flex: 1; min-width: 90px; padding: 10px; background: #1b7a3d; color: #fff; border: none; border-radius: 8px; font-size: 12px; font-weight: bold; cursor: pointer;">الأم</button> <button style="flex: 1; min-width: 90px; padding: 10px; background: #1b7a3d; color: #fff; border: none; border-radius: 8px; font-size: 12px; font-weight: bold; cursor: pointer;">القادة</button> <button style="flex: 1; min-width: 90px; padding: 10px; background: #1b7a3d; color: #fff; border: none; border-radius: 8px; font-size: 12px; font-weight: bold; cursor: pointer;">حديث الولادة</button> <button style="flex: 1; min-width: 90px; padding: 10px; background: #1b7a3d; color: #fff; border: none; border-radius: 8px; font-size: 12px; font-weight: bold; cursor: pointer;">أُخرى</button></div>
+<button style="width: 100%; padding: 14px; background: #d4a745; color: #000; border: none; border-radius: 10px; font-size: 16px; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; margin-top: 15px;">حساب عائلة FITRANA</button>
+<div id="fitr-fam-result" style="margin-top: 20px; padding: 25px; background: linear-gradient(135deg,#f0faf3,#e8f5e9); border-radius: 12px; border: 2px solid #1b7a3d; display: none;">
+<div style="font-size: 16px; font-weight: bold; color: #145a2e; text-align: center; margin-bottom: 15px;">انهيار فطرانا العائلي</div>
+<div id="fitr-fam-detail"></div>
+</div>
+</div>
+<div style="background: linear-gradient(135deg,#1b7a3d,#228B22); border-radius: 15px; padding: 30px; color: #fff; text-align: center; margin: 25px 0;">
+<div style="font-size: 28px; font-weight: 900; margin-bottom: 8px;">حاسبة مقارنة السلع</div>
+<div style="font-size: 14px; opacity: 0.85;">مقارنة مبالغ الفطرانا عبر جميع السلع في وقت واحد</div>
+</div>
+<div style="background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 25px;">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">عدد الأشخاص</label> <input id="comp-members" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; box-sizing: border-box;" max="99" min="1" type="number" value="5"></div>
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">معيار الوزن</label><select id="comp-weight" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; background: #fff; box-sizing: border-box;">
+<option selected="selected" value="3.5">3.5 كجم (قياسي)</option>
+<option value="3.0">3.0 KG</option>
+<option value="2.5">2.5 KG</option>
+</select></div>
+</div>
+<button style="width: 100%; padding: 14px; background: #1b7a3d; color: #fff; border: none; border-radius: 10px; font-size: 16px; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 1px;">مقارنة جميع السلع</button>
+<div id="comp-result" style="margin-top: 20px; display: none;">
+<div id="comp-table"></div>
+</div>
+</div>
+<h2>أسعار الفطرانا 2026 — باكستان (تقريبي)</h2>
+<p>فيما يلي أسعار الفطرانا المقدرة للشخص الواحد لشهر رمضان 2026 بناءً على السلع الغذائية المختلفة. يتم الإعلان عن المعدلات الفعلية رسميًا من قبل السلطات الدينية (لجنة رويه الهلال) قبل العيد. تأكد دائمًا من ذلك مع المسجد المحلي أو المفتي قبل الدفع.</p>
+<table>
+<tbody>
+<tr>
+<th>سلعة</th>
+<th>الوزن (سبت واحد)</th>
+<th>السعر التقديري/كجم 2026</th>
+<th>فطرانا للشخص الواحد</th>
+<th>عائلة مكونة من 5 أفراد</th>
+<th>عائلة مكونة من 8 أفراد</th>
+</tr>
+<tr>
+<td>القمح / الجندوم</td>
+<td>3.5 KG</td>
+<td>150 روبية باكستانية</td>
+<td><strong>PKR 525</strong></td>
+<td>PKR 2,625</td>
+<td>4,200 روبية باكستانية</td>
+</tr>
+<tr>
+<td>الشعير / الجاو</td>
+<td>3.5 KG</td>
+<td>350 روبية باكستانية</td>
+<td><strong>PKR 1,225</strong></td>
+<td>6,125 روبية باكستانية</td>
+<td>9800 روبية باكستانية</td>
+</tr>
+<tr>
+<td>التواريخ / الخجور</td>
+<td>3.5 KG</td>
+<td>900 روبية باكستانية</td>
+<td><strong>3,150 روبية باكستانية</strong></td>
+<td>15,750 روبية باكستانية</td>
+<td>25,200 روبية باكستانية</td>
+</tr>
+<tr>
+<td>الزبيب / الكشميش</td>
+<td>3.5 KG</td>
+<td>1400 روبية باكستانية</td>
+<td><strong>4900 روبية باكستانية</strong></td>
+<td>24,500 روبية باكستانية</td>
+<td>39,200 روبية باكستانية</td>
+</tr>
+<tr>
+<td>الجبن / آكيت</td>
+<td>3.5 KG</td>
+<td>1800 روبية باكستانية</td>
+<td><strong>6,300 روبية باكستانية</strong></td>
+<td>31,500 روبية باكستانية</td>
+<td>50,400 روبية باكستانية</td>
+</tr>
+</tbody>
+</table>
+<div style="background: #fff3e0; border: 2px solid #ff9800; border-radius: 10px; padding: 15px; margin: 20px 0;"><strong style="color: #e65100;">الفقه الحنفي ملاحظة:</strong> بالنسبة للقمح (الجندوم)، يكفي نصف سع (حوالي 1.75 كجم إلى 2.5 كجم) وفقًا للمدرسة الحنفية. ومع ذلك، يوصي معظم العلماء الباكستانيين ولجنة روي هلال باستخدام 3.5 كجم كمعيار لتحقيق أقصى فائدة للفقراء. بالنسبة للشعير والتمر والزبيب والجبن، يلزم وجود صاع كامل (3.5 كجم) في جميع المدارس. الدفع بسعر السلعة الأعلى (التمر/الزبيب) يكسب المزيد من المكافآت إن شاء الله.</div>
+<h2>أسعار الفطرانة حسب البلد (تقديرات 2026)</h2>
+<table>
+<tbody>
+<tr>
+<th>البلد</th>
+<th>العملة</th>
+<th>معدل القمح</th>
+<th>معدل التواريخ</th>
+<th>معدل الزبيب</th>
+</tr>
+<tr>
+<td><strong>باكستان</strong></td>
+<td>الروبية الباكستانية</td>
+<td>525</td>
+<td>3,150</td>
+<td>4,900</td>
+</tr>
+<tr>
+<td><strong>الهند</strong></td>
+<td>INR</td>
+<td>120</td>
+<td>875</td>
+<td>1,225</td>
+</tr>
+<tr>
+<td><strong>الولايات المتحدة الأمريكية</strong></td>
+<td>دولار أمريكي</td>
+<td>3</td>
+<td>21</td>
+<td>32</td>
+</tr>
+<tr>
+<td><strong>UK</strong></td>
+<td>جنيه إسترليني</td>
+<td>2</td>
+<td>18</td>
+<td>25</td>
+</tr>
+<tr>
+<td><strong>الإمارات العربية المتحدة</strong></td>
+<td>درهم إماراتي</td>
+<td>10</td>
+<td>63</td>
+<td>98</td>
+</tr>
+<tr>
+<td><strong>المملكة العربية السعودية</strong></td>
+<td>بالريال السعودي</td>
+<td>9</td>
+<td>53</td>
+<td>77</td>
+</tr>
+<tr>
+<td><strong>بنغلاديش</strong></td>
+<td>التاكا البنجلاديشي</td>
+<td>105</td>
+<td>700</td>
+<td>1,050</td>
+</tr>
+<tr>
+<td><strong>ﻣﺎﻟﯿﺰﯾﺎ</strong></td>
+<td>رينغيت ماليزي</td>
+<td>10</td>
+<td>63</td>
+<td>91</td>
+</tr>
+</tbody>
+</table>
+<h2>صيغ حساب الفطرانة</h2>
+<h3>تركيبة الفطرانا الأساسية</h3>
+<div style="background: #f0faf3; padding: 20px; border-radius: 10px; margin: 15px 0; font-family: monospace; font-size: 15px; line-height: 2.2;"><strong style="font-size: 20px; color: #1b7a3d;">F = W x P x N</strong><br><br>المكان:<br>F = إجمالي مبلغ الفطرانا (بالعملة)<br>W = وزن السلعة للشخص الواحد (1 Sa' = حوالي 3.5 كجم)<br>P = سعر السوق الحالي لكل كيلوغرام من السلعة المختارة<br>العدد = عدد الأشخاص (الذين تكون فطرانا واجبة بالنسبة لهم)</div>
+<h3>تركيبة الفطر لكل شخص</h3>
+<div style="background: #f0faf3; padding: 20px; border-radius: 10px; margin: 15px 0; font-family: monospace; font-size: 15px; line-height: 2.2;"><strong style="font-size: 20px; color: #1b7a3d;">F<sub>الشخص</sub> = W x P</strong><br><br>مثال (القمح): و<sub>الشخص</sub> = 3.5 كجم × 150 روبية باكستانية/كجم = 525 روبية باكستانية<br>مثال (التواريخ): و<sub>الشخص</sub> = 3.5 كجم × 900 روبية باكستانية/كجم = 3150 روبية باكستانية<br>مثال (زبيب): و<sub>الشخص</sub> = 3.5 كجم × 1400 روبية باكستانية/كجم = 4900 روبية باكستانية</div>
+<h3>تفاصيل القياس Sa'</h3>
+<div style="background: #f0faf3; padding: 20px; border-radius: 10px; margin: 15px 0; font-family: monospace; font-size: 15px; line-height: 2.2;">1 صاع = 4 طين<br>1 طين = 2 حفنة في المتوسط (يدان مقعرتان معًا)<br><br><strong>مكافئات الوزن (تقريبي):</strong><br>1 صاع من القمح = 3.0 إلى 3.5 كجم<br>1 شعير = 2.5 إلى 3.0 كجم<br>1 سبتمن التمور = 2.8 إلى 3.5 كجم<br>1 صاع من الزبيب = 2.5 إلى 3.5 كجم<br><br><strong>المدرسة الحنفية (القمح فقط):</strong><br>نصف سع = حوالي 1.75 كجم إلى 2.5 كجم<br>معظم العلماء يصل وزنهم إلى 3.5 كجم للسلامة وأقصى فائدة<br><br><strong>المعادل النقدي (الفقه الحنفي):</strong><br>F<sub>الدفع النقدي</sub> = الوزن × سعر السوق الحالي للكيلوغرام<br>يسمح الفقه الحنفي بالدفع نقدًا بدلاً من المواد الغذائية الفعلية.<br>معظم العلماء اليوم يفضلون النقد لأنه يعطي المزيد من المرونة للفقراء.</div>
+<h2>أمثلة تم حلها باستخدام الحساب خطوة بخطوة</h2>
+<h3>مثال 1: الأسرة الصغيرة — القائمة على القمح (الحد الأدنى من الالتزام)</h3>
+<p>الزوج + الزوجة + طفلين = 4 أفراد. سعر القمح: 150 روبية باكستانية/كجم. الوزن: 3.5 كجم.</p>
+<div style="background: #f5f5f5; border-radius: 10px; padding: 20px; margin: 15px 0;">
+<div style="background: #fff; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 14px; line-height: 2.2;"><strong>مقدمة:</strong><br>العدد = 4 أشخاص<br>العرض = 3.5 كجم للشخص الواحد<br>P = PKR 150/KG (قمح)<br><br><strong>الخطوة 1: لكل شخص فيترانا</strong><br>F<sub>الشخص</sub> = W x P<br>F<sub>الشخص</sub> = 3.5 x 150<br>F<sub>الشخص</sub> = PKR 525<br><br><strong>الخطوة 2: إجمالي عائلة الفطرانة</strong><br>F = F<sub>الشخص</sub> x N<br>F = 525 x 4<br><strong style="color: #1b7a3d; font-size: 18px;">F = PKR 2,100</strong><br><br>إجمالي القمح المطلوب = 3.5 × 4 = 14 كجم<br>يمكن أيضًا إعطاء 14 كجم من القمح مباشرة للفقراء بدلاً من النقد.</div>
+</div>
+<h3>مثال 2: عائلة كبيرة — تعتمد على التواريخ (مكافأة أعلى)</h3>
+<p>الزوج + 2 زوجات + 6 أطفال + أب + أم + 1 خادم = 12 عضو. التواريخ: 900 روبية باكستانية/كجم.</p>
+<div style="background: #f5f5f5; border-radius: 10px; padding: 20px; margin: 15px 0;">
+<div style="background: #fff; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 14px; line-height: 2.2;"><strong>مقدمة:</strong><br>العدد = 12 شخصًا<br>العرض = 3.5 كجم للشخص الواحد<br>P = PKR 900/KG (التواريخ)<br><br><strong>الحساب:</strong><br>F<sub>الشخص</sub> = 3.5 × 900 = 3,150 روبية باكستانية<br>F = 3,150 x 12<br><strong style="color: #1b7a3d; font-size: 18px;">F = PKR 37,800</strong><br><br>إجمالي التواريخ المطلوبة = 3.5 × 12 = 42 كجم<br>ملاحظة: يتم تضمين جميع الزوجات والأطفال (بما في ذلك الرضع) والآباء والخدم المسلمين.</div>
+</div>
+<h3>مثال 3: سيناريو المولود الجديد</h3>
+<p>الزوج + الزوجة + طفل واحد + مولود جديد (مولود في 27 رمضان) = 4 أفراد. الشعير: 350 روبية باكستانية/كجم.</p>
+<div style="background: #f5f5f5; border-radius: 10px; padding: 20px; margin: 15px 0;">
+<div style="background: #fff; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 14px; line-height: 2.2;"><strong>التحقق من القاعدة:</strong><br>المولود في 27 رمضان = قبل فجر العيد<br>لذلك: فطرانة هي وجيب لحديثي الولادة<br><br><strong>مقدمة:</strong><br>العدد = 4 (بما في ذلك حديثي الولادة)<br>العرض = 3.5 كجم | السعر = 350 روبية باكستانية/كجم (الشعير)<br><br><strong>الحساب:</strong><br>F<sub>الشخص</sub> = 3.5 × 350 = 1225 روبية باكستانية<br>F = 1,225 x 4<br><strong style="color: #1b7a3d; font-size: 18px;">F = PKR 4,900</strong><br><br>إذا ولد الطفل بعد فجر العيد = ليس واجب، ولكن مصطفى (موصى به).</div>
+</div>
+<h3>مثال 4: الحد الأقصى للسواب — الزبيب/الكشميش</h3>
+<p>عائلة مكونة من 7 أفراد. الزبيب: 1400 روبية باكستانية/كجم. ادفع بأعلى سعر للحصول على أقصى مكافأة.</p>
+<div style="background: #f5f5f5; border-radius: 10px; padding: 20px; margin: 15px 0;">
+<div style="background: #fff; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 14px; line-height: 2.2;"><strong>مقدمة:</strong><br>N = 7 | W = 3.5 كجم | P = 1400 روبية باكستانية/كجم (الزبيب)<br><br>F<sub>الشخص</sub> = 3.5 × 1400 = 4900 روبية باكستانية<br>F = 4,900 x 7<br><strong style="color: #1b7a3d; font-size: 18px;">F = PKR 34,300</strong><br><br><strong>مقارنة لنفس العائلة المكونة من 7 أفراد:</strong><br>القمح: 3.5 × 150 × 7 = 3675 روبية باكستانية (الحد الأدنى)<br>الشعير: 3.5 × 350 × 7 = 8,575 روبية باكستانية<br>التواريخ: 3.5 × 900 × 7 = 22,050 روبية باكستانية<br>الزبيب: 3.5 × 1400 × 7 = 34300 روبية باكستانية (الحد الأقصى للسواب)<br>الجبن: 3.5 × 1800 × 7 = 44100 روبية باكستانية<br><br>دفع معدل الزبيب يعطي <strong>9.3x أكثر</strong> تعود بالفائدة على الفقراء مقابل معدل القمح.</div>
+</div>
+<h3>مثال 5: سلعة مختلطة — معدل مختلف لكل شخص</h3>
+<p>تدفع بعض العائلات معدلات مختلفة لأفراد مختلفين بناءً على القدرة الفردية. هذا جائز في الإسلام.</p>
+<div style="background: #f5f5f5; border-radius: 10px; padding: 20px; margin: 15px 0;">
+<div style="background: #fff; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 14px; line-height: 2.2;">الزوج (معدل التمر): 3.5 × 900 = 3,150 روبية باكستانية<br>الزوجة (معدل التمر): 3.5 × 900 = 3,150 روبية باكستانية<br>الطفل 1 (معدل القمح): 3.5 × 150 = 525 روبية باكستانية<br>طفل 2 (معدل القمح): 3.5 × 150 = 525 روبية باكستانية<br>طفل 3 (معدل القمح): 3.5 × 150 = 525 روبية باكستانية<br>الخادم (معدل القمح): 3.5 × 150 = 525 روبية باكستانية<br><br><strong style="color: #1b7a3d; font-size: 18px;">الإجمالي = 8400 روبية باكستانية</strong><br><br>هذا مسموح به بنسبة 100 ٪. يمكنك دفع أسعار سلع مختلفة لأفراد الأسرة المختلفين. الحد الأدنى للفرد هو معدل القمح.</div>
+</div>
+<h3>مثال 6: عائلة الولايات المتحدة الأمريكية — حساب الدولار</h3>
+<p>عائلة مكونة من 4 أفراد في الولايات المتحدة الأمريكية. التواريخ: 6 $/كغ. الوزن: 3.5 كجم.</p>
+<div style="background: #f5f5f5; border-radius: 10px; padding: 20px; margin: 15px 0;">
+<div style="background: #fff; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 14px; line-height: 2.2;">F<sub>الشخص</sub> = 3.5 x $6 = $21<br>F = $21 x 4<br><strong style="color: #1b7a3d; font-size: 18px;">F = $84</strong><br><br>بسعر الزبيب: 3.5 $ 9 4 = $ 126<br>تعلن معظم مساجد الولايات المتحدة عن سعر ثابت (عادة ما يكون 12-15 $ للشخص الواحد لما يعادل القمح).</div>
+</div>
+<h2>استكمال قواعد وشروط الفطرانة</h2>
+<table>
+<tbody>
+<tr>
+<th>القاعدة</th>
+<th>التفصيل</th>
+</tr>
+<tr>
+<td><strong>من الذين يجب أن يدفع الثمن؟</strong></td>
+<td>كل مسلم حر يمتلك طعامًا يتجاوز احتياجاته ليوم العيد، أو ثروة فوق نصيب. يدفع رب الأسرة لجميع المعالين.</td>
+</tr>
+<tr>
+<td><strong>المعالون يشملون</strong></td>
+<td>الزوجة (جميع الزوجات إذا كن أكثر من واحدة)، والأطفال (بما في ذلك الأطفال حديثي الولادة)، والآباء (إذا كانوا معالين)، والخادمات المسلمات/العاملات المنزليات.</td>
+</tr>
+<tr>
+<td><strong>عندما يصبح واجباً</strong></td>
+<td>Becomes Wajib at Subh Sadiq (true dawn / Fajr time) on the day of Eid ul Fitr.</td>
+</tr>
+<tr>
+<td><strong>Best Time to Pay</strong></td>
+<td>After Fajr of Eid day but BEFORE Eid Salah begins. This is the Sunnah time.</td>
+</tr>
+<tr>
+<td><strong>Advance Payment</strong></td>
+<td>Can be paid from the 1st of Ramadan onwards. Many scholars recommend paying early so the poor can prepare for Eid.</td>
+</tr>
+<tr>
+<td><strong>Late Payment</strong></td>
+<td>If delayed after Eid Salah, it becomes ordinary Sadaqah (charity) not Fitrana. The person is sinful for the delay but must still pay it.</td>
+</tr>
+<tr>
+<td><strong>Minimum Amount</strong></td>
+<td>1 Sa' of staple food (dates, barley, raisins, cheese) or Half Sa' of wheat (Hanafi only). Standard = 3.5 KG.</td>
+</tr>
+<tr>
+<td><strong>Cash Payment</strong></td>
+<td>Hanafi fiqh permits cash equivalent. Most modern scholars prefer cash as it is more practical and beneficial for the poor.</td>
+</tr>
+<tr>
+<td><strong>Who Can Receive</strong></td>
+<td>Same 8 categories as Zakat per Quran 9:60: Poor (Fuqara), Needy (Masakeen), Zakat collectors, New Muslims, Freeing captives, Debtors, In the way of Allah, Travelers.</td>
+</tr>
+<tr>
+<td><strong>Cannot Give To</strong></td>
+<td>Your own dependents (wife, children, parents you support), non-Muslims, Sayyids/Hashimis, wealthy persons who own Nisab.</td>
+</tr>
+<tr>
+<td><strong>Newborn Baby</strong></td>
+<td>Born BEFORE Fajr of Eid = Wajib. Born AFTER Fajr of Eid = Not Wajib but Mustahab (recommended).</td>
+</tr>
+<tr>
+<td><strong>Unborn Child (in Womb)</strong></td>
+<td>Not Wajib but Mustahab (recommended). Umar ibn al-Khattab (RA) and some Companions used to pay for unborn children.</td>
+</tr>
+<tr>
+<td><strong>Deceased Person</strong></td>
+<td>Died BEFORE Fajr of Eid = No Fitrana. Was alive at Fajr and died later = Fitrana was already Wajib and must be paid from estate.</td>
+</tr>
+<tr>
+<td><strong>Non-Muslim Servant</strong></td>
+<td>No Fitrana for non-Muslim family members or servants. Fitrana is only for and by Muslims.</td>
+</tr>
+<tr>
+<td><strong>Distribution</strong></td>
+<td>Permissible to give all family Fitrana to one poor person. Also permissible to split one person's Fitrana among multiple poor people.</td>
+</tr>
+<tr>
+<td><strong>Fasting Not Required</strong></td>
+<td>Even if someone did not fast (due to illness, travel, etc.), Fitrana is still Wajib on them if they meet the conditions.</td>
+</tr>
+</tbody>
+</table>
+<h2>Fitrana vs Zakat — Key Differences</h2>
+<table>
+<tbody>
+<tr>
+<th>Aspect</th>
+<th>Fitrana (Zakat al-Fitr)</th>
+<th>Zakat (Zakat al-Maal)</th>
+</tr>
+<tr>
+<td><strong>Timing</strong></td>
+<td>Once a year, before Eid ul Fitr</td>
+<td>When Nisab is held for 1 full lunar year</td>
+</tr>
+<tr>
+<td><strong>Calculated On</strong></td>
+<td>Per person (head count)</td>
+<td>On wealth (gold, silver, cash, assets)</td>
+</tr>
+<tr>
+<td><strong>السعر</strong></td>
+<td>Fixed amount (1 Sa' of food per person)</td>
+<td>2.5% of total Zakatable wealth</td>
+</tr>
+<tr>
+<td><strong>Who Pays</strong></td>
+<td>Every Muslim (even poor if they have food for Eid day)</td>
+<td>Only Muslims who own Nisab for 1 year</td>
+</tr>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Purification of fast + feed the poor on Eid</td>
+<td>Purification of wealth + help the needy</td>
+</tr>
+<tr>
+<td><strong>Amount Range</strong></td>
+<td>Small fixed amount (PKR 525 to PKR 6,300 per person)</td>
+<td>Can be very large depending on total wealth</td>
+</tr>
+<tr>
+<td><strong>For Children</strong></td>
+<td>Wajib for every child (paid by father)</td>
+<td>Not Wajib on children (no personal wealth)</td>
+</tr>
+</tbody>
+</table>
+<h2>Wisdom Behind Fitrana (Zakat al-Fitr)</h2>
+<p>Fitrana serves two essential purposes in the life of the Muslim Ummah:</p>
+<p><strong>1. Purification of the Fasting Person:</strong> No matter how carefully a person fasts during Ramadan, small sins may occur — idle talk, gossip, looking at impermissible things, harsh words, minor backbiting. Fitrana acts as a kaffarah (expiation) for these shortcomings and purifies the fast so it is accepted by Allah in its best form. Think of it as a "polishing" of your Ramadan worship.</p>
+<p><strong>2. Feeding the Poor on Eid:</strong> Eid is a day of celebration for the entire Ummah. The Prophet (PBUH) did not want any Muslim to go hungry on Eid day while others celebrate. Fitrana ensures that even the poorest families have food, dignity, and joy on Eid. This is why it must be paid BEFORE Eid Salah — so the poor can buy food and prepare their Eid celebration in time.</p>
+<p><strong>3. Unity of the Ummah:</strong> Fitrana creates a sense of shared responsibility. Whether you are rich or poor, everyone gives Fitrana for their family. Whether a king or a laborer, the amount per person is the same. This equality before Allah is a beautiful aspect of Islamic social justice.</p>
+<h2>Hadith References About Fitrana</h2>
+<blockquote><strong>Ibn Umar (RA) narrated:</strong> "The Messenger of Allah (PBUH) enjoined Zakat al-Fitr — a Sa' of dates or a Sa' of barley — upon the Muslim: slave and free, male and female, young and old. And he ordered that it be paid before the people go out for the Eid prayer." <br><br><em>— Sahih Bukhari 1503, Sahih Muslim 984</em></blockquote>
+<blockquote><strong>Ibn Abbas (RA) narrated:</strong> "The Messenger of Allah (PBUH) ordained Zakat al-Fitr as a purification for the fasting person from idle talk and obscenities, and as food for the poor. Whoever pays it before the Eid prayer, it is an accepted Zakat. And whoever pays it after the prayer, it is just a Sadaqah (voluntary charity)." <br><br><em>— Sunan Abu Dawud 1609, Sunan Ibn Majah 1827</em></blockquote>
+<blockquote><strong>Abu Sa'id al-Khudri (RA) said:</strong> "We used to give one Sa' of food, or one Sa' of barley, or one Sa' of dates, or one Sa' of cheese, or one Sa' of raisins as Zakat al-Fitr." <br><br><em>— Sahih Bukhari 1506, Sahih Muslim 985</em></blockquote>
+<blockquote><strong>Waki' ibn al-Jarrah said:</strong> "Zakat al-Fitr is to Ramadan what Sujud al-Sahw (prostration of forgetfulness) is to Salah — it makes up for any deficiencies in the act of worship." <br><br><em>— Reported by several scholars of fiqh</em></blockquote>
+<h2>Frequently Asked Questions</h2>
+<p><strong>Q: Can I pay Fitrana at the beginning of Ramadan?</strong></p>
+<p>A: Yes, it is permissible to pay Fitrana from the 1st of Ramadan. In fact, paying early is recommended so the poor have time to use the money for Eid preparations. Many people in Pakistan and India pay during the last 10 days of Ramadan.</p>
+<p><strong>Q: Is Fitrana Wajib on a child who has no personal wealth?</strong></p>
+<p>A: Fitrana is Wajib on the child but paid by the father/guardian. Even a newborn baby born before Fajr of Eid requires Fitrana paid by the head of household.</p>
+<p><strong>Q: If I have multiple wives, do I pay Fitrana for all of them?</strong></p>
+<p>A: Yes, the husband pays Fitrana for all his wives as they are his dependents. For example: husband + 4 wives = minimum 5 persons' Fitrana, plus all children and any dependent parents.</p>
+<p><strong>Q: Can I give Fitrana to my poor brother or sister?</strong></p>
+<p>A: Yes, you can give Fitrana to poor relatives who are NOT your direct dependents. In fact, giving to relatives earns double reward — the reward of charity and the reward of maintaining family ties (silat ar-rahim).</p>
+<p><strong>Q: What if I forgot to pay Fitrana before Eid Salah?</strong></p>
+<p>A: You must still pay it as soon as possible. However, it will be counted as ordinary Sadaqah rather than Fitrana. The obligation remains on you, you are sinful for the delay, and you should seek forgiveness (istighfar) for the negligence.</p>
+<p><strong>Q: Should I pay based on wheat (minimum) or dates/raisins (higher)?</strong></p>
+<p>A: The minimum obligation is fulfilled with the wheat rate. However, paying at dates or raisins rate provides significantly more benefit to the poor and earns proportionally more reward from Allah. If you can afford it, paying the higher rate is always better. The Prophet's (PBUH) companions used to give dates and barley.</p>
+<p><strong>Q: Can one person's Fitrana be split among multiple poor people?</strong></p>
+<p>A: Yes, it is permissible. You can also give multiple persons' Fitrana to a single poor person. For example, you can give your entire family's Fitrana (e.g., PKR 2,100 for 4 members) to one poor family. There is flexibility in distribution.</p>
+<p><strong>Q: Is Fitrana required if I did not fast during Ramadan?</strong></p>
+<p>A: Yes. Fitrana is linked to Eid ul Fitr, not to fasting itself. Even if someone did not fast (due to illness, travel, pregnancy, old age, etc.), Fitrana is still Wajib on them if they meet the financial conditions.</p>
+<p><strong>Q: Can I pay Fitrana in a different city or country?</strong></p>
+<p>A: Most scholars say Fitrana should be given to the poor in your local area. However, if your relatives or people in another area are in greater need, it is permissible to send it there. The priority is ensuring the poor have food on Eid day.</p>
+<p><strong>Q: Do I pay Fitrana for a non-Muslim wife or servant?</strong></p>
+<p>A: No. Fitrana is only for Muslim family members and Muslim servants. Non-Muslim dependents do not require Fitrana.</p>
+<div style="background: #fff3e0; border: 2px solid #ff9800; border-radius: 12px; padding: 20px; margin: 25px 0;">
+<h3 style="color: #e65100; margin-top: 0;">إخلاء مسؤولية مهم</h3>
+<p style="font-size: 13px; line-height: 1.7;">This calculator provides approximate Fitrana amounts based on estimated market prices for 2026. Actual Fitrana rates are officially announced by religious authorities such as the Ruet-e-Hilal Committee (Pakistan), Hajj Committee (India), and local Islamic organizations before Eid ul Fitr each year. Prices vary by region, season, and market conditions.</p>
+<p style="font-size: 13px; line-height: 1.7;">Always confirm the current rate with your local mosque imam, Mufti, or religious authority before making payment. This calculator is for educational and estimation purposes only and should not replace proper scholarly guidance.</p>
+<p style="font-size: 13px; line-height: 1.7; margin-bottom: 0;"><strong>Quranic References:</strong> Surah Al-Baqarah 2:267 | Surah At-Tawbah 9:60<br><strong>Hadith References:</strong> Sahih Bukhari 1503, 1506, 1507, 1510, 1512 | Sahih Muslim 984, 985 | Sunan Abu Dawud 1609-1622 | Sunan Ibn Majah 1827 | Sunan an-Nasa'i</p>
+</div>

@@ -1,0 +1,266 @@
+<h3>حاسبة تكلفة الأضحية</h3>
+<p><strong>الأضحية</strong>  واجبة عند الحنفية على كل مسلم بالغ يملك نصاباً أيام عيد الأضحى (١٠–١٢ ذو الحجة). تساعدك الحاسبة على تقدير التكلفة وحصص الأضحية المشتركة وتوزيع اللحم.</p>
+<div style="background: linear-gradient(135deg,#1b7a3d,#228B22); border-radius: 15px; padding: 30px; color: #fff; text-align: center; margin: 25px 0;">
+<div style="font-size: 28px; font-weight: 900; margin-bottom: 8px;">حاسبة الأضحية</div>
+<div style="font-size: 14px; opacity: 0.85;">احسب تكلفة أضحيتك وتوزيع الحصص لعيد الأضحى ٢٠٢٦</div>
+</div>
+<div style="background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 25px;">
+<h3 style="margin: 0 0 18px; font-size: 18px; font-weight: 900; color: #1b7a3d; border-bottom: 3px solid #1b7a3d; padding-bottom: 10px;">اختر نوع الحيوان</h3>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">نوع الحيوان</label><select id="qb-animal" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; background: #fff; box-sizing: border-box;">
+<option value="goat">ماعز (حصة واحدة = شخص واحد)</option>
+<option value="sheep">ضأن (حصة واحدة = شخص واحد)</option>
+<option selected="selected" value="cow">بقرة (حتى ٧ حصص)</option>
+<option value="buffalo">جاموس (حتى ٧ حصص)</option>
+<option value="camel">إبل (حتى ٧ حصص)</option>
+</select></div>
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">البلد</label><select id="qb-currency" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; background: #fff; box-sizing: border-box;">
+<option selected="selected" value="PKR">باكستان (ر.ب)</option>
+</select></div>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">سعر الحيوان كاملاً</label> <input id="qb-price" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; box-sizing: border-box;" type="number" value="350000"></div>
+<div id="qb-حصةs-row" style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">عدد الحصص (حتى ٧ للكبيرة)</label> <input id="qb-حصةs" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; box-sizing: border-box;" max="7" min="1" type="number" value="7"></div>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">حصصك في هذا الحيوان</label> <input id="qb-myحصةs" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; box-sizing: border-box;" max="7" min="1" type="number" value="1"></div>
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">عدد الحيوانات</label> <input id="qb-animals" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; box-sizing: border-box;" max="20" min="1" type="number" value="1"></div>
+</div>
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">مصاريف إضافية (ذبح، نقل، علف)</label> <input id="qb-extras" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; box-sizing: border-box;" min="0" type="number" value="0"></div>
+<button style="width: 100%; padding: 14px; background: #1b7a3d; color: #fff; border: none; border-radius: 10px; font-size: 16px; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px;">CALCULATE QURBANI COST</button>
+<div id="qb-result" style="margin-top: 25px; display: none;">
+<div style="padding: 25px; background: linear-gradient(135deg,#f0faf3,#e8f5e9); border-radius: 12px; border: 2px solid #1b7a3d; text-align: center; margin-bottom: 20px;">
+<div style="font-size: 14px; font-weight: bold; color: #145a2e;">إجمالي تكلفتك</div>
+<div id="qb-total" style="font-size: 36px; font-weight: 900; color: #1b7a3d; margin: 10px 0;"></div>
+<div id="qb-summary" style="font-size: 13px; color: #666;"></div>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+<div style="background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; border-top: 4px solid #1b7a3d;">
+<div style="font-size: 12px; font-weight: bold; color: #666; text-transform: uppercase;">تكلفة الحصة</div>
+<div id="qb-perحصة" style="font-size: 22px; font-weight: 900; color: #1b7a3d; margin: 8px 0;"></div>
+</div>
+<div style="background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; border-top: 4px solid #d4a745;">
+<div style="font-size: 12px; font-weight: bold; color: #666; text-transform: uppercase;">تكلفة حصصك</div>
+<div id="qb-mycost" style="font-size: 22px; font-weight: 900; color: #d4a745; margin: 8px 0;"></div>
+</div>
+<div style="background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; border-top: 4px solid #145a2e;">
+<div style="font-size: 12px; font-weight: bold; color: #666; text-transform: uppercase;">إجمالي كل الحيوانات</div>
+<div id="qb-alltotal" style="font-size: 22px; font-weight: 900; color: #145a2e; margin: 8px 0;"></div>
+</div>
+</div>
+<div style="background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 20px;">
+<h4 style="margin: 0 0 15px; font-size: 16px; font-weight: 800; color: #1b7a3d;">توزيع اللحم (طريقة السنة)</h4>
+<div id="qb-meat"></div>
+</div>
+<div style="background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+<h4 style="margin: 0 0 15px; font-size: 16px; font-weight: 800; color: #1b7a3d;">صيغة الحساب</h4>
+<div id="qb-formula" style="font-الأهل: monospace; font-size: 14px; line-height: 2; color: #333;"></div>
+</div>
+</div>
+</div>
+<div style="background: linear-gradient(135deg,#1b7a3d,#228B22); border-radius: 15px; padding: 30px; color: #fff; text-align: center; margin: 25px 0;">
+<div style="font-size: 28px; font-weight: 900; margin-bottom: 8px;">تقسيم الأضحية الجماعية</div>
+<div style="font-size: 14px; opacity: 0.85;">وزّع تكلفة البقرة/الجاموس/الإبل على ٢–٧ شركاء بالأسماء</div>
+</div>
+<div style="background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 25px;">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">سعر الحيوان كاملاً</label> <input id="gs-price" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; box-sizing: border-box;" type="number" value="350000"></div>
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">مصاريف إضافية (ذبح ونقل)</label> <input id="gs-extras" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; box-sizing: border-box;" type="number" value="15000"></div>
+</div>
+<div id="gs-list">
+<div id="gs-1" style="display: flex; align-items: center; gap: 10px; padding: 10px; background: #f9f9f9; border-radius: 8px; margin-bottom: 8px; flex-wrap: wrap;"><span style="font-weight: bold; font-size: 13px; min-width: 25px;">1.</span> <input style="flex: 1; min-width: 120px; padding: 8px 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 14px; box-sizing: border-box;" type="text" value="أنا" placeholder="الاسم"> <label style="font-size: 13px; font-weight: 600;">الحصص:</label> <input class="gs-حصة-input" style="width: 60px; padding: 8px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 14px; text-align: center; box-sizing: border-box;" max="7" min="1" type="number" value="1"></div>
+</div>
+<div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;"><button style="flex: 1; min-width: 150px; padding: 10px; background: #1b7a3d; color: #fff; border: none; border-radius: 8px; font-size: 12px; font-weight: bold; cursor: pointer;">+ إضافة شريك</button> <button style="flex: 1; min-width: 150px; padding: 10px; background: #e53935; color: #fff; border: none; border-radius: 8px; font-size: 12px; font-weight: bold; cursor: pointer;">إعادة تعيين</button></div>
+<button style="width: 100%; padding: 14px; background: #d4a745; color: #000; border: none; border-radius: 10px; font-size: 16px; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; margin-top: 15px;">CALCULATE GROUP SHARES</button>
+<div id="gs-result" style="margin-top: 20px; padding: 25px; background: linear-gradient(135deg,#f0faf3,#e8f5e9); border-radius: 12px; border: 2px solid #1b7a3d; display: none;">
+<div style="font-size: 16px; font-weight: bold; color: #145a2e; text-align: center; margin-bottom: 15px;">توزيع الحصص</div>
+<div id="gs-detail"></div>
+</div>
+</div>
+<h2>أسعار الأضاحي ٢٠٢٦ — باكستان (تقدير)</h2>
+<table style="width: 94.1274%; height: 264px;">
+<tbody>
+<tr style="height: 43px;">
+<th style="width: 21.1884%;">الحيوان</th>
+<th style="width: 11.0001%;">الحصص</th>
+<th style="width: 19.1748%;">صغير</th>
+<th style="width: 13.3796%;">متوسط</th>
+<th style="width: 19.1427%;">كبير</th>
+<th style="width: 16.1143%;">ممتاز</th>
+</tr>
+<tr style="height: 43px;">
+<td style="width: 21.1884%;"><strong>ماعز</strong></td>
+<td style="width: 11.0001%;">1</td>
+<td style="width: 19.1748%;">40,000</td>
+<td style="width: 13.3796%;">60,000</td>
+<td style="width: 19.1427%;">80,000</td>
+<td style="width: 16.1143%;">1,20,000+</td>
+</tr>
+<tr style="height: 43px;">
+<td style="width: 21.1884%;"><strong>ضأن</strong></td>
+<td style="width: 11.0001%;">1</td>
+<td style="width: 19.1748%;">35,000</td>
+<td style="width: 13.3796%;">50,000</td>
+<td style="width: 19.1427%;">70,000</td>
+<td style="width: 16.1143%;">1,00,000+</td>
+</tr>
+<tr style="height: 43px;">
+<td style="width: 21.1884%;"><strong>بقرة</strong></td>
+<td style="width: 11.0001%;">7</td>
+<td style="width: 19.1748%;">2,50,000</td>
+<td style="width: 13.3796%;">3,50,000</td>
+<td style="width: 19.1427%;">5,00,000</td>
+<td style="width: 16.1143%;">8,00,000+</td>
+</tr>
+<tr style="height: 43px;">
+<td style="width: 21.1884%;"><strong>جاموس</strong></td>
+<td style="width: 11.0001%;">7</td>
+<td style="width: 19.1748%;">3,00,000</td>
+<td style="width: 13.3796%;">4,50,000</td>
+<td style="width: 19.1427%;">6,00,000</td>
+<td style="width: 16.1143%;">10,00,000+</td>
+</tr>
+<tr style="height: 48px;">
+<td style="width: 21.1884%;"><strong>إبل</strong></td>
+<td style="width: 11.0001%;">7</td>
+<td style="width: 19.1748%;">3,50,000</td>
+<td style="width: 13.3796%;">5,00,000</td>
+<td style="width: 19.1427%;">7,00,000</td>
+<td style="width: 16.1143%;">12,00,000+</td>
+</tr>
+</tbody>
+</table>
+<h2>صيغ حساب الأضحية</h2>
+<h3>صيغة تكلفة الحصة</h3>
+<div style="background: #f0faf3; padding: 20px; border-radius: 10px; margin: 15px 0; font-الأهل: monospace; font-size: 15px; line-height: 2.2;"><strong style="font-size: 18px; color: #1b7a3d;">C<sub>حصة</sub> = (P + E) / S</strong><br><br>حيث:<br>C<sub>حصة</sub> = تكلفة الحصة<br>P = سعر الحيوان<br>E = المصاريف الإضافية<br>S = عدد الحصص (١ للشاة، حتى ٧ للكبيرة)</div>
+<h3>صيغة تكلفتك</h3>
+<div style="background: #f0faf3; padding: 20px; border-radius: 10px; margin: 15px 0; font-الأهل: monospace; font-size: 15px; line-height: 2.2;"><strong style="font-size: 18px; color: #1b7a3d;">C<sub>you</sub> = C<sub>حصة</sub> x N<sub>حصصك</sub> x A</strong><br><br>حيث:<br>N<sub>حصصك</sub> = عدد حصصك<br>A = عدد الحيوانات</div>
+<h3>صيغة توزيع اللحم (سنة)</h3>
+<div style="background: #f0faf3; padding: 20px; border-radius: 10px; margin: 15px 0; font-الأهل: monospace; font-size: 15px; line-height: 2.2;"><strong style="font-size: 18px; color: #1b7a3d;">إجمالي اللحم = M<sub>الأهل</sub> + M<sub>الأقارب</sub> + M<sub>الفقراء</sub></strong><br><br>التقسيم المسنون (مستحب):<br>ثلث للأهل<br>ثلث للأقارب والأصدقاء<br>ثلث للفقراء<br><br>يجوز زيادة حصة أو نقصها — مستحب لا فرض، مع تأكيد نصيب الفقير.</div>
+<h2>أمثلة محلولة</h2>
+<h3>مثال ١: ماعز كامل — شخص واحد</h3>
+<p>شخص يشتري ماعزاً بـ ٦٥٬٠٠٠ ر.ب. أجرة الجزار ٣٬٠٠٠. اللحم تقريباً ١٥ كغ.</p>
+<div style="background: #f5f5f5; border-radius: 10px; padding: 20px; margin: 15px 0;">
+<div style="background: #fff; padding: 15px; border-radius: 8px; font-الأهل: monospace; font-size: 14px; line-height: 2.2;"><strong>التكلفة:</strong><br>Total = 65,000 + 3,000 = PKR 68,000<br>الحصص = ١ (الشاة حصة واحدة)<br>للحصة = PKR 68,000<br><br><strong>توزيع اللحم (15 KG):</strong><br>الأهل: 15 x 1/3 = 5 KG<br>الأقارب/الأصدقاء: 15 x 1/3 = 5 KG<br>الفقراء: 15 x 1/3 = 5 KG</div>
+</div>
+<h3>مثال ٢: بقرة — ٧ شركاء</h3>
+<p>٧ أشخاص يشتركون في بقرة بـ ٣٥٠٬٠٠٠. إضافات ٢١٬٠٠٠. اللحم تقريباً ١٢٠ كغ.</p>
+<div style="background: #f5f5f5; border-radius: 10px; padding: 20px; margin: 15px 0;">
+<div style="background: #fff; padding: 15px; border-radius: 8px; font-الأهل: monospace; font-size: 14px; line-height: 2.2;"><strong>تكلفة الحصة:</strong><br>Total = 3,50,000 + 21,000 = 3,71,000<br>للحصة = 3,71,000 / 7 = <strong style="color: #1b7a3d;">PKR 53,000</strong><br><br><strong>اللحم للحصة (١٢٠ كغ):</strong><br>نصيب كل شريك: 120 / 7 = 17.1 KG<br><br><strong>توزيع لحم الشريك (١٧٫١ كغ):</strong><br>الأهل: 17.1 x 1/3 = 5.7 KG<br>الأقارب: 17.1 x 1/3 = 5.7 KG<br>الفقراء: 17.1 x 1/3 = 5.7 KG</div>
+</div>
+<h3>مثال ٣: عائلة بعدة حصص</h3>
+<p>الزوج يأخذ ٣ حصص في بقرة (لنفسه ولزوجته وعن أبيه المتوفى). البقرة ٤٠٠٬٠٠٠. إضافات ١٥٬٠٠٠.</p>
+<div style="background: #f5f5f5; border-radius: 10px; padding: 20px; margin: 15px 0;">
+<div style="background: #fff; padding: 15px; border-radius: 8px; font-الأهل: monospace; font-size: 14px; line-height: 2.2;">Total = 4,00,000 + 15,000 = 4,15,000<br>للحصة = 4,15,000 / 7 = PKR 59,286<br>تكلفته (٣ حصص) = 59,286 x 3 = <strong style="color: #1b7a3d;">PKR 1,77,857</strong><br><br>ملاحظة: الحصة عن الميّت لإيصال الثواب جائزة ويصل الثواب إن شاء الله.</div>
+</div>
+<h3>مثال ٤: أكثر من حيوان</h3>
+<p>موسر يشتري ماعزين (٧٠٬٠٠٠ لكل) + حصة بقرة (٥٥٬٠٠٠).</p>
+<div style="background: #f5f5f5; border-radius: 10px; padding: 20px; margin: 15px 0;">
+<div style="background: #fff; padding: 15px; border-radius: 8px; font-الأهل: monospace; font-size: 14px; line-height: 2.2;">الماعز ١ = ٧٠٬٠٠٠ ر.ب<br>الماعز ٢ = ٧٠٬٠٠٠ ر.ب<br>حصة البقرة = ٥٥٬٠٠٠ ر.ب<br><strong style="color: #1b7a3d;">Total = PKR 1,95,000</strong><br><br>ثلاث أضاحٍ: واحدة واجبة واثنتان نفل. هذا من هدي إبراهيم عليه السلام والنبي ﷺ.</div>
+</div>
+<h2>أحكام الأضحية</h2>
+<table>
+<tbody>
+<tr>
+<th>الحكم</th>
+<th>التفصيل</th>
+</tr>
+<tr>
+<td><strong>على من تجب</strong></td>
+<td>كل مسلم بالغ عاقل مالك للنصاب أيام ١٠–١٢ ذو الحجة. الرجال والنساء.</td>
+</tr>
+<tr>
+<td><strong>الوقت</strong></td>
+<td>بعد صلاة العيد ١٠ ذو الحجة حتى مغرب ١٢ (ثلاثة أيام). الأفضل أول يوم.</td>
+</tr>
+<tr>
+<td><strong>أدنى عمر</strong></td>
+<td>المعز/الضأن: سنة. البقرة/الجاموس: سنتان. الإبل: خمس سنين.</td>
+</tr>
+<tr>
+<td><strong>سلامة الحيوان</strong></td>
+<td>لا عمياء ولا عرجاء ولا مريضة ولا شديدة الهزال ولا مكسورة القرن بنزيف ولا مقطوعة الأذن. العيب اليسير يُغتفر.</td>
+</tr>
+<tr>
+<td><strong>حصص الحيوانات الكبيرة</strong></td>
+<td>البقرة والجاموس والإبل حتى ٧ حصص. كل حصة عن شخص بنيّة صحيحة.</td>
+</tr>
+<tr>
+<td><strong>المعز/الضأن</strong></td>
+<td>الشاة عن شخص واحد ولا تُقسَّم.</td>
+</tr>
+<tr>
+<td><strong>توزيع اللحم</strong></td>
+<td>السنة: ثلث أهل، ثلث أقارب/أصدقاء، ثلث فقراء. يجوز إمساك الكل أو التصدق بالكل مع تأكيد حظ الفقير.</td>
+</tr>
+<tr>
+<td><strong>الجلد</strong></td>
+<td>لا يُباع للانتفاع الشخصي. يُعطى للفقراء أو صدقة/مدرسة. يجوز إبقاؤه للاستعمال الشخصي كسجادة.</td>
+</tr>
+<tr>
+<td><strong>أجرة الجزار</strong></td>
+<td>لا تُدفع من اللحم أو الجلد، بل نقداً على حدة. إهداء اللحم للجزار غير الأجرة.</td>
+</tr>
+<tr>
+<td><strong>عن الغير</strong></td>
+<td>تجوز عن الوالدين والأقارب المتوفين لإيصال الثواب. النبي ﷺ ضحّى عن أمته.</td>
+</tr>
+<tr>
+<td><strong>النيّة</strong></td>
+<td>النيّة قبل الذبح. في المشترك تكون نيّة كل شريك أضحية أو عقيقة أو صدقة لا مجرد شراء لحم.</td>
+</tr>
+<tr>
+<td><strong>صفة الذبح</strong></td>
+<td>بسم الله والله أكبر، توجيه القبلة، سكين حادّ، قطع سريع مع تقليل الألم.</td>
+</tr>
+</tbody>
+</table>
+<h2>الأضحية عن الميّت</h2>
+<p>تجوز ويُثاب عليها عن الأهل المتوفين. النبي ﷺ ضحّى عن أمته ممن مضى ومن يأتي.</p>
+<table>
+<tbody>
+<tr>
+<th>الحالة</th>
+<th>الحكم</th>
+</tr>
+<tr>
+<td>عن الأب/الأم المتوفين</td>
+<td>جائزة ومثوبة، يصل الثواب بإذن الله.</td>
+</tr>
+<tr>
+<td>وصية الميّت بالأضحية</td>
+<td>واجبة من التركة في حدود الثلث.</td>
+</tr>
+<tr>
+<td>حصة بقرة عن ميّت</td>
+<td>جائزة. حصة من سبع عن الميّت.</td>
+</tr>
+<tr>
+<td>الأضحية عن النبي ﷺ</td>
+<td>جائزة عند الحنفية تعبيراً عن المحبة.</td>
+</tr>
+</tbody>
+</table>
+<h2>أحاديث</h2>
+<blockquote><strong>روى أنس بن مالك رضي الله عنه:</strong> "ضحّى النبي ﷺ بكبشين أملحين، ذبحهما بيده وكبّر ووضع قدمه على صفاحهما." <br><br><em>— صحيح البخاري 5558, صحيح مسلم 1966</em></blockquote>
+<blockquote><strong>روى جابر رضي الله عنه:</strong> "نحرنا مع رسول الله ﷺ بالحديبية البدنة عن سبعة والبقرة عن سبعة." <br><br><em>— صحيح مسلم 1318</em></blockquote>
+<blockquote><strong>روى علي رضي الله عنه:</strong> "أمرني رسول الله ﷺ أن أقوم على بُدنه وأن أقسم لحومها وجلودها وجلالها على المساكين ولا أعطي الجزار منها." <br><br><em>— صحيح البخاري 1717, صحيح مسلم 1317</em></blockquote>
+<blockquote><strong>روت أم سلمة رضي الله عنها أن النبي ﷺ قال:</strong> "إذا دخل العشر وأراد أحدكم أن يضحّي فلا يمس من شعره وبشره شيئاً حتى يضحّي." <br><br><em>— صحيح مسلم 1977</em></blockquote>
+<h2>أسئلة شائعة</h2>
+<p><strong>س: هل الأضحية واجبة أم سنّة؟</strong></p>
+<p>ج: عند الحنفية واجبة على المستطيع. عند الشافعية والمالكية والحنابلة سنّة مؤكدة. وعلى كل حال لا ينبغي تركها.</p>
+<p><strong>س: هل يجوز أن تكون الحصص السبع لعائلة واحدة؟</strong></p>
+<p>ج: نعم. للعائلة أخذ السبع كلها، مثلاً زوج وزوجة وخمسة بالغين لكل حصة في البقرة نفسها.</p>
+<p><strong>س: حصة أضحية وأخرى عقيقة؟</strong></p>
+<p>ج: نعم في البقرة ونحوها تختلف النيات: أضحية أو عقيقة أو صدقة، بشرط نيّة شرعية لا شراء لحم فقط.</p>
+<p><strong>س: هل أتصدق بكل اللحم؟</strong></p>
+<p>ج: نعم جائز ومثوب. التقسيم أثلاث مستحب لا واجب.</p>
+<p><strong>س: إن فاتت الأيام الثلاثة؟</strong></p>
+<p>ج: من وجبت عليه ولم يضحّ يتصدق بقيمة شاة. وقت الذبح قد فات.</p>
+<p><strong>س: أضحية عبر جهة خيرية؟</strong></p>
+<p>ج: نعم إن كانت الجهة موثوقة تذبح عنك بالطريقة الشرعية.</p>
+<div style="background: #fff3e0; border: 2px solid #ff9800; border-radius: 12px; padding: 20px; margin: 25px 0;">
+<h3 style="color: #e65100; margin-top: 0;">تنبيه</h3>
+<p style="font-size: 13px; line-height: 1.7;">الأسعار تقدير لسنة ٢٠٢٦ حسب المنطقة والسلالة والوزن والسوق. ترتفع الأسعار قرب العيد. الحاسبة للتخطيط فقط. راجعوا أسعار السوق المحلي.</p>
+<p style="font-size: 13px; line-height: 1.7; margin-bottom: 0;"><strong>مراجع قرآنية:</strong> سورة الحج 22:34-37 | سورة الكوثر 108:2 | سورة الصافات 37:102-107<br><strong>الحديث:</strong> Sahih Bukhari 5545-5565 | صحيح مسلم 1317-1977 | سنن أبي داود | سنن ابن ماجه</p>
+</div>

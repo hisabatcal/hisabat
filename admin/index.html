@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>حسابات — لوحة</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap" style="padding:24px 18px">
+  <h1>لوحة المحتوى</h1>
+  <p>GitHub Pages لا يحفظ على السيرفر. حرّر المقال ثم <strong>تنزيل HTML</strong> وارفعه في <code>assets/articles/</code>.</p>
+  <p>كلمة المرور المحلية (المتصفح فقط): <input id="pw" type="password" placeholder="hisabat"> <button class="go" type="button" id="login">دخول</button></p>
+  <div id="ed" style="display:none">
+    <p><select id="file">
+      <option value="basic-zakat-calculator-formulas.html">الزكاة</option>
+      <option value="qurbani-cost-calculator.html">الأضحية</option>
+      <option value="fitrana-zakat-al-fitr-calculator-2026.html">الفطرة</option>
+      <option value="islamic-inheritance-calculator.html">المواريث</option>
+      <option value="why-islamic-inheritance-shares-are-not-equal-explained.html">المواريث شرح</option>
+      <option value="hajj-savings-calculator-2026.html">الحج</option>
+      <option value="how-to-calculate-mahr-in-islam.html">المهر</option>
+      <option value="islamic-loan-qarz-e-hasana-calculator.html">القرض الحسن</option>
+      <option value="sadaqah-calculator.html">الصدقة</option>
+    </select>
+    <button class="go" type="button" id="load">تحميل</button>
+    <button class="go" type="button" id="dl">تنزيل الملف</button>
+    </p>
+    <textarea id="tx" style="width:100%;min-height:70vh;direction:ltr;text-align:left;font-family:monospace;font-size:13px"></textarea>
+  </div>
+</div>
+<script>
+const KEY='hisabat-admin';
+document.getElementById('login').onclick=()=>{
+  if(document.getElementById('pw').value==='hisabat' || localStorage.getItem(KEY)==='1'){
+    localStorage.setItem(KEY,'1');
+    document.getElementById('ed').style.display='block';
+  } else alert('كلمة خاطئة — الافتراضي hisabat غيّرها بعد الرفع');
+};
+if(localStorage.getItem(KEY)==='1') document.getElementById('ed').style.display='block';
+document.getElementById('load').onclick=()=>{
+  const f=document.getElementById('file').value;
+  fetch('../assets/articles/'+f).then(r=>r.text()).then(t=>document.getElementById('tx').value=t);
+};
+document.getElementById('dl').onclick=()=>{
+  const f=document.getElementById('file').value;
+  const blob=new Blob([document.getElementById('tx').value],{type:'text/html'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=f; a.click();
+};
+</script>
+</body>
+</html>

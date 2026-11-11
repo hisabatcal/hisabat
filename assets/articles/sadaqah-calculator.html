@@ -1,0 +1,350 @@
+<h2>Sadaqah Calculator and Daily Charity Planner 2026</h2>
+<p>Sadaqah (voluntary charity) is one of the most beloved deeds to Allah. Unlike Zakat which is obligatory and has fixed rates, Sadaqah has no minimum or maximum limit — even a smile is Sadaqah. This calculator helps you plan your daily, weekly, and monthly Sadaqah contributions, track different types of charity, and understand the immense rewards of giving in Islam.</p>
+<div style="background: linear-gradient(135deg,#1b7a3d,#228B22); border-radius: 15px; padding: 30px; color: #fff; text-align: center; margin: 25px 0;">
+<div style="font-size: 28px; font-weight: 900; margin-bottom: 8px;">Sadaqah Planner Calculator</div>
+<div style="font-size: 14px; opacity: 0.85;">Plan your daily, weekly, monthly and yearly charity budget</div>
+</div>
+<div style="background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 25px;">
+<h3 style="margin: 0 0 18px; font-size: 18px; font-weight: 900; color: #1b7a3d; border-bottom: 3px solid #1b7a3d; padding-bottom: 10px;">Your Income and Charity Goal</h3>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">Your Monthly Income</label> <input id="sd-income" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; box-sizing: border-box;" min="0" type="number" value="80000"></div>
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">العملة</label><select id="sd-currency" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; background: #fff; box-sizing: border-box;">
+<option selected="selected" value="PKR">PKR (Pakistan)</option>
+<option value="INR">INR (India)</option>
+<option value="USD">USD (USA)</option>
+<option value="GBP">GBP (UK)</option>
+<option value="AED">AED (UAE)</option>
+<option value="SAR">SAR (Saudi Arabia)</option>
+</select></div>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">Sadaqah Percentage of Income</label><select id="sd-percent" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; background: #fff; box-sizing: border-box;">
+<option value="1">1% — Minimal</option>
+<option value="2">2% — Light</option>
+<option value="3">3% — Moderate</option>
+<option selected="selected" value="5">5% — Recommended</option>
+<option value="7">7% — Generous</option>
+<option value="10">10% — Very Generous (Tithe Level)</option>
+<option value="15">15% — Highly Generous</option>
+<option value="20">20% — Exceptional</option>
+<option value="custom">Custom Amount</option>
+</select></div>
+<div id="sd-custom-row" style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">Custom Monthly Sadaqah Amount</label> <input id="sd-custom" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; box-sizing: border-box;" min="0" type="number" value="0"></div>
+</div>
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">Sadaqah Distribution Plan</label><select id="sd-plan" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; background: #fff; box-sizing: border-box;">
+<option selected="selected" value="daily">Daily — Give a small amount every day</option>
+<option value="weekly">Weekly — Give once a week (e.g. every Friday)</option>
+<option value="monthly">Monthly — Give once on salary day</option>
+<option value="ramadan">Ramadan Special — Extra giving during Ramadan</option>
+</select></div>
+<button style="width: 100%; padding: 14px; background: #1b7a3d; color: #fff; border: none; border-radius: 10px; font-size: 16px; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px;">CALCULATE SADAQAH PLAN</button>
+<div id="sd-result" style="margin-top: 25px; display: none;">
+<div style="padding: 25px; background: linear-gradient(135deg,#f0faf3,#e8f5e9); border-radius: 12px; border: 2px solid #1b7a3d; text-align: center; margin-bottom: 20px;">
+<div style="font-size: 14px; font-weight: bold; color: #145a2e;">Your Monthly Sadaqah Budget</div>
+<div id="sd-total" style="font-size: 36px; font-weight: 900; color: #1b7a3d; margin: 10px 0;"></div>
+<div id="sd-percent-show" style="font-size: 13px; color: #666;"></div>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; margin-bottom: 20px;">
+<div style="background: #fff; border-radius: 12px; padding: 18px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; border-top: 4px solid #1b7a3d;">
+<div style="font-size: 11px; font-weight: bold; color: #666; text-transform: uppercase;">Daily</div>
+<div id="sd-daily" style="font-size: 20px; font-weight: 900; color: #1b7a3d; margin: 6px 0;"></div>
+</div>
+<div style="background: #fff; border-radius: 12px; padding: 18px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; border-top: 4px solid #d4a745;">
+<div style="font-size: 11px; font-weight: bold; color: #666; text-transform: uppercase;">Weekly</div>
+<div id="sd-weekly" style="font-size: 20px; font-weight: 900; color: #d4a745; margin: 6px 0;"></div>
+</div>
+<div style="background: #fff; border-radius: 12px; padding: 18px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; border-top: 4px solid #145a2e;">
+<div style="font-size: 11px; font-weight: bold; color: #666; text-transform: uppercase;">Monthly</div>
+<div id="sd-monthly" style="font-size: 20px; font-weight: 900; color: #145a2e; margin: 6px 0;"></div>
+</div>
+<div style="background: #fff; border-radius: 12px; padding: 18px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; border-top: 4px solid #e53935;">
+<div style="font-size: 11px; font-weight: bold; color: #666; text-transform: uppercase;">Yearly</div>
+<div id="sd-yearly" style="font-size: 20px; font-weight: 900; color: #e53935; margin: 6px 0;"></div>
+</div>
+</div>
+<div style="background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 20px;">
+<h4 style="margin: 0 0 15px; font-size: 16px; font-weight: 800; color: #1b7a3d;">Suggested Sadaqah Distribution</h4>
+<div id="sd-distribution"></div>
+</div>
+<div style="background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 20px;">
+<h4 style="margin: 0 0 15px; font-size: 16px; font-weight: 800; color: #1b7a3d;">10-Year Sadaqah Impact</h4>
+<div id="sd-impact"></div>
+</div>
+<div style="background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+<h4 style="margin: 0 0 15px; font-size: 16px; font-weight: 800; color: #1b7a3d;">Calculation Formula</h4>
+<div id="sd-formula" style="font-family: monospace; font-size: 14px; line-height: 2; color: #333;"></div>
+</div>
+</div>
+</div>
+<div style="background: linear-gradient(135deg,#1b7a3d,#228B22); border-radius: 15px; padding: 30px; color: #fff; text-align: center; margin: 25px 0;">
+<div style="font-size: 28px; font-weight: 900; margin-bottom: 8px;">Sadaqah Jariyah Calculator</div>
+<div style="font-size: 14px; opacity: 0.85;">Calculate the ongoing reward of continuous charity — the gift that keeps giving</div>
+</div>
+<div style="background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 25px;">
+<p style="font-size: 13px; color: #666; margin-bottom: 15px;">Sadaqah Jariyah is a continuous charity whose reward keeps flowing even after your death. Calculate the ongoing impact of your investment in projects that benefit people for years.</p>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">Sadaqah Jariyah Type</label><select id="sj-type" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; background: #fff; box-sizing: border-box;">
+<option value="well">Water Well / Bore (serves 500+ people)</option>
+<option value="masjid">Masjid Construction Contribution</option>
+<option value="school">Islamic School / Madrasa</option>
+<option value="quran">Quran Distribution (print/digital)</option>
+<option value="tree">Tree Planting (fruit trees)</option>
+<option value="orphan">Orphan Sponsorship (monthly)</option>
+<option value="medical">Medical Camp / Equipment</option>
+<option value="books">Islamic Books / Library</option>
+<option value="custom">Custom Project</option>
+</select></div>
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">Your Contribution Amount</label> <input id="sj-amount" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; box-sizing: border-box;" min="0" type="number" value="50000"></div>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">Estimated Years of Benefit</label> <input id="sj-years" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; box-sizing: border-box;" max="100" min="1" type="number" value="20"></div>
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">Estimated People Benefiting Daily</label> <input id="sj-people" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; box-sizing: border-box;" min="1" type="number" value="100"></div>
+</div>
+<button style="width: 100%; padding: 14px; background: #d4a745; color: #000; border: none; border-radius: 10px; font-size: 16px; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px;">CALCULATE JARIYAH IMPACT</button>
+<div id="sj-result" style="margin-top: 20px; padding: 25px; background: linear-gradient(135deg,#f0faf3,#e8f5e9); border-radius: 12px; border: 2px solid #1b7a3d; text-align: center; display: none;">
+<div style="font-size: 14px; font-weight: bold; color: #145a2e;">Your Sadaqah Jariyah Impact</div>
+<div id="sj-total-impact" style="font-size: 32px; font-weight: 900; color: #1b7a3d; margin: 10px 0;"></div>
+<div id="sj-detail" style="font-size: 14px; color: #333; margin-top: 10px; line-height: 2;"></div>
+<div style="font-size: 12px; color: #999; font-style: italic; margin-top: 15px; padding-top: 10px; border-top: 1px solid #ccc;">The Prophet (PBUH) said: "When a person dies, all their deeds end except three: Sadaqah Jariyah, beneficial knowledge, and a righteous child who prays for them." — Sahih Muslim 1631</div>
+</div>
+</div>
+<h2>Types of Sadaqah in Islam</h2>
+<p>Sadaqah is not limited to money. The Prophet Muhammad (PBUH) described many forms of charity that earn reward from Allah. Here is a comprehensive list:</p>
+<table>
+<tbody>
+<tr>
+<th>Type</th>
+<th>الفئة</th>
+<th>Description</th>
+<th>Hadith Reference</th>
+</tr>
+<tr>
+<td><strong>Giving Money</strong></td>
+<td>Financial</td>
+<td>Any amount given to the poor, needy, or a good cause</td>
+<td>Quran 2:261</td>
+</tr>
+<tr>
+<td><strong>Feeding the Hungry</strong></td>
+<td>Financial</td>
+<td>Providing food to the poor, fasting person, or traveler</td>
+<td>Quran 76:8-9</td>
+</tr>
+<tr>
+<td><strong>Giving Water</strong></td>
+<td>Financial</td>
+<td>Providing drinking water — one of the best Sadaqah</td>
+<td>Sunan Ibn Majah 3684</td>
+</tr>
+<tr>
+<td><strong>Smiling</strong></td>
+<td>Non-Financial</td>
+<td>Smiling at your brother/sister is Sadaqah</td>
+<td>Tirmidhi 1956</td>
+</tr>
+<tr>
+<td><strong>Good Words</strong></td>
+<td>Non-Financial</td>
+<td>Every good word is Sadaqah, even saying SubhanAllah</td>
+<td>Bukhari 2989</td>
+</tr>
+<tr>
+<td><strong>Removing Harm</strong></td>
+<td>Non-Financial</td>
+<td>Removing a stone, thorn, or obstacle from the path</td>
+<td>Muslim 1009</td>
+</tr>
+<tr>
+<td><strong>Helping Someone</strong></td>
+<td>Non-Financial</td>
+<td>Helping load goods onto an animal/vehicle is Sadaqah</td>
+<td>Bukhari 2891</td>
+</tr>
+<tr>
+<td><strong>Teaching Knowledge</strong></td>
+<td>Non-Financial</td>
+<td>Teaching Quran, Hadith, or any beneficial knowledge</td>
+<td>Muslim 1631</td>
+</tr>
+<tr>
+<td><strong>Planting a Tree</strong></td>
+<td>Jariyah</td>
+<td>Any tree from which a person, bird, or animal eats is Sadaqah for the planter</td>
+<td>Bukhari 2320</td>
+</tr>
+<tr>
+<td><strong>Building a Masjid</strong></td>
+<td>Jariyah</td>
+<td>Allah builds a house in Jannah for whoever builds a masjid</td>
+<td>Bukhari 450</td>
+</tr>
+<tr>
+<td><strong>Dhikr / Tasbeeh</strong></td>
+<td>Non-Financial</td>
+<td>Every SubhanAllah, Alhamdulillah, La ilaha illAllah is Sadaqah</td>
+<td>Muslim 1006</td>
+</tr>
+<tr>
+<td><strong>Spending on Family</strong></td>
+<td>Financial</td>
+<td>Spending on wife, children, parents is one of the best Sadaqah</td>
+<td>Muslim 995</td>
+</tr>
+<tr>
+<td><strong>Forgiving Debt</strong></td>
+<td>Financial</td>
+<td>Forgiving someone who owes you money</td>
+<td>Muslim 1560</td>
+</tr>
+<tr>
+<td><strong>Visiting the Sick</strong></td>
+<td>Non-Financial</td>
+<td>Visiting ill people and making dua for them</td>
+<td>Bukhari 5649</td>
+</tr>
+<tr>
+<td><strong>Guiding the Lost</strong></td>
+<td>Non-Financial</td>
+<td>Showing someone the right direction/path</td>
+<td>Tirmidhi 1956</td>
+</tr>
+</tbody>
+</table>
+<h2>Sadaqah Jariyah — Types of Ongoing Charity</h2>
+<table>
+<tbody>
+<tr>
+<th>Project</th>
+<th>Estimated Cost (PKR)</th>
+<th>Duration of Benefit</th>
+<th>People Benefited</th>
+</tr>
+<tr>
+<td><strong>Water Well / Hand Pump</strong></td>
+<td>50,000 - 2,00,000</td>
+<td>15-25 years</td>
+<td>500+ people daily</td>
+</tr>
+<tr>
+<td><strong>Water Bore / Tube Well</strong></td>
+<td>2,00,000 - 5,00,000</td>
+<td>20-30 years</td>
+<td>1000+ people daily</td>
+</tr>
+<tr>
+<td><strong>Masjid Construction</strong></td>
+<td>5,00,000 - 50,00,000+</td>
+<td>50-100+ years</td>
+<td>Thousands for generations</td>
+</tr>
+<tr>
+<td><strong>Madrasa / School</strong></td>
+<td>10,00,000 - 1,00,00,000+</td>
+<td>50+ years</td>
+<td>Hundreds of students yearly</td>
+</tr>
+<tr>
+<td><strong>Quran Copies Distribution</strong></td>
+<td>500 - 2,000 per copy</td>
+<td>20+ years per copy</td>
+<td>Every reader earns you reward</td>
+</tr>
+<tr>
+<td><strong>Fruit Tree Planting</strong></td>
+<td>500 - 5,000 per tree</td>
+<td>30-50+ years</td>
+<td>Every person/animal that eats from it</td>
+</tr>
+<tr>
+<td><strong>Orphan Sponsorship</strong></td>
+<td>5,000 - 15,000 per month</td>
+<td>Until child is independent</td>
+<td>1 child + their future family</td>
+</tr>
+<tr>
+<td><strong>Islamic Books / Library</strong></td>
+<td>1,00,000 - 10,00,000</td>
+<td>30+ years</td>
+<td>Every reader earns you reward</td>
+</tr>
+<tr>
+<td><strong>Hospital / Clinic</strong></td>
+<td>50,00,000+</td>
+<td>50+ years</td>
+<td>Thousands of patients yearly</td>
+</tr>
+<tr>
+<td><strong>Wheelchair / Medical Equipment</strong></td>
+<td>10,000 - 50,000</td>
+<td>5-15 years</td>
+<td>1-10 patients</td>
+</tr>
+</tbody>
+</table>
+<h2>Sadaqah Formulas</h2>
+<h3>Monthly Sadaqah Formula</h3>
+<div style="background: #f0faf3; padding: 20px; border-radius: 10px; margin: 15px 0; font-family: monospace; font-size: 15px; line-height: 2.2;"><strong style="font-size: 18px; color: #1b7a3d;">S<sub>monthly</sub> = I x (P / 100)</strong><br><br>المكان:<br>S<sub>monthly</sub> = Monthly Sadaqah amount<br>I = Monthly income<br>P = Chosen percentage (1% to 20%)</div>
+<h3>Daily/Weekly/Yearly Breakdown</h3>
+<div style="background: #f0faf3; padding: 20px; border-radius: 10px; margin: 15px 0; font-family: monospace; font-size: 15px; line-height: 2.2;">S<sub>daily</sub> = S<sub>monthly</sub> / 30<br>S<sub>weekly</sub> = S<sub>monthly</sub> / 4.33<br>S<sub>yearly</sub> = S<sub>monthly</sub> x 12</div>
+<h3>Sadaqah Jariyah Impact Formula</h3>
+<div style="background: #f0faf3; padding: 20px; border-radius: 10px; margin: 15px 0; font-family: monospace; font-size: 15px; line-height: 2.2;"><strong style="font-size: 18px; color: #1b7a3d;">Impact = P x D x Y</strong><br><br>المكان:<br>Impact = Total person-days of benefit<br>P = Number of people benefiting daily<br>D = Days per year (365)<br>Y = Years of continuous benefit<br><br>Cost per person-day = Amount / Impact</div>
+<h2>Solved Examples</h2>
+<h3>Example 1: Monthly Sadaqah Plan — 5% of Income</h3>
+<p>Income: PKR 80,000/month. Sadaqah: 5%. Daily distribution.</p>
+<div style="background: #f5f5f5; border-radius: 10px; padding: 20px; margin: 15px 0;">
+<div style="background: #fff; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 14px; line-height: 2.2;">S<sub>monthly</sub> = 80,000 x (5/100) = <strong style="color: #1b7a3d;">PKR 4,000</strong><br>S<sub>daily</sub> = 4,000 / 30 = PKR 133<br>S<sub>weekly</sub> = 4,000 / 4.33 = PKR 924<br>S<sub>yearly</sub> = 4,000 x 12 = PKR 48,000<br><br>In 10 years: PKR 4,80,000 in total Sadaqah<br>Daily PKR 133 = just one cup of tea saved per day</div>
+</div>
+<h3>Example 2: Ramadan Special — Double Charity</h3>
+<p>Regular monthly: PKR 4,000. During Ramadan: Double. Rewards are multiplied 70x in Ramadan.</p>
+<div style="background: #f5f5f5; border-radius: 10px; padding: 20px; margin: 15px 0;">
+<div style="background: #fff; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 14px; line-height: 2.2;">Normal 11 months: 4,000 x 11 = PKR 44,000<br>Ramadan (double): 4,000 x 2 = PKR 8,000<br><strong style="color: #1b7a3d;">Yearly total = PKR 52,000</strong><br><br>Ramadan rewards multiplied 70x by Allah's mercy<br>Effective reward value of Ramadan Sadaqah = 8,000 x 70 = PKR 5,60,000 equivalent in rewards</div>
+</div>
+<h3>Example 3: Sadaqah Jariyah — Water Well</h3>
+<p>Cost: PKR 1,50,000. Benefits 500 people daily. Lasts 20 years.</p>
+<div style="background: #f5f5f5; border-radius: 10px; padding: 20px; margin: 15px 0;">
+<div style="background: #fff; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 14px; line-height: 2.2;">Total person-days = 500 x 365 x 20<br>Total person-days = <strong style="color: #1b7a3d;">36,50,000 person-days of benefit</strong><br><br>Cost per person-day = 1,50,000 / 36,50,000<br>Cost per person-day = PKR 0.04 (less than 1 paisa per person per day)<br><br>You earn reward for every sip of water by every person for 20 years — even after your death. This is the power of Sadaqah Jariyah.</div>
+</div>
+<h3>Example 4: Quran Distribution</h3>
+<p>Print 100 Quran copies at PKR 800 each = PKR 80,000. Each Quran lasts 20 years. Each read by average 5 people.</p>
+<div style="background: #f5f5f5; border-radius: 10px; padding: 20px; margin: 15px 0;">
+<div style="background: #fff; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 14px; line-height: 2.2;">Total Qurans = 100<br>People per Quran = 5<br>Total readers = 100 x 5 = 500 people<br>Years of benefit = 20<br><br>Every letter read from Quran = 10 rewards (Tirmidhi 2910)<br>Quran has approximately 3,20,000 letters<br>If each person reads full Quran once = 3,20,000 x 10 = 32,00,000 rewards<br>500 people = 32,00,000 x 500 = <strong style="color: #1b7a3d;">1,60,00,00,000 rewards</strong><br><br>And that is just one reading each. Many will read multiple times over 20 years.</div>
+</div>
+<h3>Example 5: Friday Sadaqah — Weekly Giving</h3>
+<p>Income: PKR 50,000. Give PKR 500 every Friday. Annual calculation.</p>
+<div style="background: #f5f5f5; border-radius: 10px; padding: 20px; margin: 15px 0;">
+<div style="background: #fff; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 14px; line-height: 2.2;">Weekly = PKR 500<br>Fridays per year = 52<br>S<sub>yearly</sub> = 500 x 52 = <strong style="color: #1b7a3d;">PKR 26,000</strong><br>S<sub>monthly</sub> = 26,000 / 12 = PKR 2,167<br>Percentage of income = (2,167 / 50,000) x 100 = 4.3%<br><br>Friday Sadaqah is especially virtuous as the Prophet (PBUH) said Friday is the best day on which the sun rises.</div>
+</div>
+<h2>Sadaqah Rewards from Quran and Hadith</h2>
+<blockquote><strong>Allah says:</strong> "The example of those who spend their wealth in the way of Allah is like a grain that sprouts seven ears, and in every ear there are a hundred grains. Allah multiplies the reward for whomever He wills. Allah is All-Encompassing, All-Knowing." <br><br><em>— Quran 2:261</em></blockquote>
+<blockquote><strong>Allah says:</strong> "Those who spend their wealth in the way of Allah and then do not follow up what they have spent with reminders of their generosity or hurtful words — they will have their reward with their Lord. There will be no fear for them, nor will they grieve." <br><br><em>— Quran 2:262</em></blockquote>
+<blockquote><strong>The Prophet (PBUH) said:</strong> "Sadaqah does not decrease wealth. No servant forgives except that Allah increases them in honor. And no one humbles themselves for the sake of Allah except that Allah raises them in status." <br><br><em>— Sahih Muslim 2588</em></blockquote>
+<blockquote><strong>The Prophet (PBUH) said:</strong> "Protect yourselves from the Hellfire even if with half a date (given in charity)." <br><br><em>— Sahih Bukhari 1417</em></blockquote>
+<blockquote><strong>The Prophet (PBUH) said:</strong> "The most beloved deed to Allah is the most consistent one, even if it is small." <br><br><em>— Sahih Bukhari 6464</em></blockquote>
+<blockquote><strong>The Prophet (PBUH) said:</strong> "When a person dies, all their deeds end except three: Sadaqah Jariyah (ongoing charity), beneficial knowledge, and a righteous child who prays for them." <br><br><em>— Sahih Muslim 1631</em></blockquote>
+<h2>Sadaqah Best Practices</h2>
+<p><strong>1. Give Secretly:</strong> The best Sadaqah is given secretly so that "your left hand does not know what your right hand gives" (Bukhari 1423). Secret charity protects from showing off (riya).</p>
+<p><strong>2. Give Consistently:</strong> Small regular charity is better than large occasional amounts. Set up a daily or weekly habit. Even PKR 10 daily = PKR 3,650 per year.</p>
+<p><strong>3. Give from What You Love:</strong> Allah says: "You will never attain righteousness until you spend from what you love" (Quran 3:92). Give your best, not your leftovers.</p>
+<p><strong>4. Give on Fridays:</strong> Friday is the best day of the week. Combining Sadaqah with Friday adds extra blessing.</p>
+<p><strong>5. Give in Ramadan:</strong> Rewards are multiplied many times in Ramadan. The Prophet (PBUH) was "more generous than the blowing wind" during Ramadan (Bukhari 6).</p>
+<p><strong>6. Do Not Invalidate Charity:</strong> Do not follow Sadaqah with reminders or hurtful words (Quran 2:264). Give and forget — let Allah remember.</p>
+<p><strong>7. Prioritize Relatives:</strong> Giving to poor relatives earns double reward — charity + maintaining family ties (Tirmidhi 658).</p>
+<p><strong>8. Include Sadaqah Jariyah:</strong> Invest in projects with lasting benefit — water wells, masjids, Quran distribution, orphan education. These keep earning you reward even after death.</p>
+<h2>Frequently Asked Questions</h2>
+<p><strong>Q: Is there a minimum amount for Sadaqah?</strong></p>
+<p>A: No. Even half a date, a glass of water, a smile, or a good word counts as Sadaqah. The Prophet (PBUH) said "Even meeting your brother with a cheerful face is Sadaqah" (Tirmidhi 1956).</p>
+<p><strong>Q: Can I give Sadaqah to non-Muslims?</strong></p>
+<p>A: Yes. Unlike Zakat, Sadaqah can be given to anyone — Muslim or non-Muslim, rich or poor, human or animal. Even feeding a stray cat or watering a plant is Sadaqah.</p>
+<p><strong>Q: Is Sadaqah the same as Zakat?</strong></p>
+<p>A: No. Zakat is obligatory (Farz), has fixed rates (2.5%), specific conditions (Nisab, 1 year), and specific recipients. Sadaqah is voluntary, has no limits, no conditions, and can be given to anyone for any good purpose.</p>
+<p><strong>Q: Can I give Sadaqah on behalf of deceased parents?</strong></p>
+<p>A: Yes, and this is one of the best things you can do for them. The reward reaches them and benefits them in the grave. The Prophet (PBUH) confirmed this in multiple Hadith.</p>
+<p><strong>Q: Does spending on my family count as Sadaqah?</strong></p>
+<p>A: Yes. The Prophet (PBUH) said: "Whatever you spend on your family is Sadaqah" (Bukhari 55). Even buying food for your wife and children with the intention of reward is charity in Allah's sight.</p>
+<p><strong>Q: Can I count Sadaqah as part of my Zakat?</strong></p>
+<p>A: No. Zakat and Sadaqah are separate. Zakat has strict rules about who can receive it. Sadaqah is additional voluntary charity above and beyond Zakat. You cannot deduct Sadaqah from your Zakat obligation.</p>
+<div style="background: #fff3e0; border: 2px solid #ff9800; border-radius: 12px; padding: 20px; margin: 25px 0;">
+<h3 style="color: #e65100; margin-top: 0;">Important Note</h3>
+<p style="font-size: 13px; line-height: 1.7;">Sadaqah is purely voluntary and there is no fixed percentage required in Islam. The percentages shown in this calculator are suggestions to help you plan, not religious requirements. Give whatever you can afford with a sincere heart. Remember: consistency matters more than amount. A small daily habit is more beloved to Allah than a large one-time donation.</p>
+<p style="font-size: 13px; line-height: 1.7; margin-bottom: 0;"><strong>Quranic References:</strong> Surah Al-Baqarah 2:261-274 | Surah Aal-e-Imran 3:92 | Surah At-Tawbah 9:60<br><strong>Hadith:</strong> Sahih Bukhari 1417, 1423, 2320, 6464 | Sahih Muslim 1006, 1009, 1631, 2588 | Tirmidhi 1956, 2910</p>
+</div>

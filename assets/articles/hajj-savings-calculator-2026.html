@@ -1,0 +1,484 @@
+<h2>Hajj Savings Calculator 2026</h2>
+<p>Planning for Hajj is one of the most important financial and spiritual decisions in a Muslim's life. Hajj is the fifth pillar of Islam and is Farz (obligatory) once in a lifetime for every Muslim who can physically and financially afford it. This calculator helps you estimate the total cost of Hajj from your country and calculates exactly how much you need to save monthly or yearly to reach your Hajj goal within your desired timeframe.</p>
+<div style="background: linear-gradient(135deg,#1b7a3d,#228B22); border-radius: 15px; padding: 30px; color: #fff; text-align: center; margin: 25px 0;">
+<div style="font-size: 28px; font-weight: 900; margin-bottom: 8px;">Hajj Savings Planner</div>
+<div style="font-size: 14px; opacity: 0.85;">Calculate your monthly and yearly savings target for Hajj</div>
+</div>
+<div style="background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 25px;">
+<h3 style="margin: 0 0 18px; font-size: 18px; font-weight: 900; color: #1b7a3d; border-bottom: 3px solid #1b7a3d; padding-bottom: 10px;">Step 1: Your Location and Package</h3>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">Your Country</label><select id="hajj-country" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; background: #fff; box-sizing: border-box;">
+<option selected="selected" value="PKR">باكستان</option>
+<option value="INR">الهند</option>
+<option value="USD">الولايات المتحدة الأمريكية</option>
+<option value="GBP">UK</option>
+<option value="AED">الإمارات العربية المتحدة</option>
+<option value="SAR">Saudi Arabia (Resident)</option>
+<option value="BDT">بنغلاديش</option>
+<option value="MYR">ﻣﺎﻟﯿﺰﯾﺎ</option>
+<option value="EUR">Europe</option>
+<option value="CAD">Canada</option>
+<option value="AUD">Australia</option>
+</select></div>
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">Hajj Package Type</label><select id="hajj-package" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; background: #fff; box-sizing: border-box;">
+<option value="economy">Economy / Government Scheme</option>
+<option selected="selected" value="standard">Standard Private</option>
+<option value="premium">Premium / 5-Star</option>
+<option value="vip">VIP / Luxury</option>
+</select></div>
+</div>
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">Number of Persons Going for Hajj</label> <input id="hajj-persons" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; box-sizing: border-box;" max="20" min="1" type="number" value="1"></div>
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">Estimated Total Hajj Cost Per Person</label> <input id="hajj-cost" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; box-sizing: border-box;" type="number" value="1200000">
+<div id="hajj-cost-hint" style="font-size: 12px; color: #888; margin-top: 4px;">Estimated based on selected country and package. You can edit manually.</div>
+</div>
+<h3 style="margin: 25px 0 18px; font-size: 18px; font-weight: 900; color: #1b7a3d; border-bottom: 3px solid #1b7a3d; padding-bottom: 10px;">Step 2: Your Savings Plan</h3>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">Target Year for Hajj</label><select id="hajj-year" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; background: #fff; box-sizing: border-box;">
+<option value="2026">2026 (This Year)</option>
+<option selected="selected" value="2027">2027</option>
+<option value="2028">2028</option>
+<option value="2029">2029</option>
+<option value="2030">2030</option>
+<option value="2031">2031</option>
+<option value="2032">2032</option>
+<option value="2033">2033</option>
+<option value="2034">2034</option>
+<option value="2035">2035</option>
+</select></div>
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">Amount Already Saved</label> <input id="hajj-saved" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; box-sizing: border-box;" min="0" type="number" value="0"></div>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">Expected Annual Price Increase (%)</label> <input id="hajj-inflation" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; box-sizing: border-box;" max="30" min="0" type="number" value="8">
+<div style="font-size: 12px; color: #888; margin-top: 4px;">Hajj costs typically increase 5-15% annually due to inflation and demand.</div>
+</div>
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">Additional Expenses Budget</label><select id="hajj-extras" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; background: #fff; box-sizing: border-box;">
+<option value="0">No extra budget</option>
+<option selected="selected" value="10">+10% (Shopping, Gifts, Misc)</option>
+<option value="15">+15% (Moderate extras)</option>
+<option value="20">+20% (Generous budget)</option>
+<option value="25">+25% (Very generous)</option>
+<option value="30">+30% (Maximum comfort)</option>
+</select></div>
+</div>
+<button style="width: 100%; padding: 14px; background: #1b7a3d; color: #fff; border: none; border-radius: 10px; font-size: 16px; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px;">CALCULATE HAJJ SAVINGS PLAN</button>
+<div id="hajj-result" style="margin-top: 25px; display: none;">
+<div style="padding: 25px; background: linear-gradient(135deg,#f0faf3,#e8f5e9); border-radius: 12px; border: 2px solid #1b7a3d; text-align: center; margin-bottom: 20px;">
+<div style="font-size: 14px; font-weight: bold; color: #145a2e;">Total Estimated Hajj Cost (<span id="hr-year"></span>)</div>
+<div id="hr-total" style="font-size: 36px; font-weight: 900; color: #1b7a3d; margin: 10px 0;"></div>
+<div id="hr-persons" style="font-size: 13px; color: #666;"></div>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+<div style="background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; border-top: 4px solid #1b7a3d;">
+<div style="font-size: 12px; font-weight: bold; color: #666; text-transform: uppercase;">Still Need to Save</div>
+<div id="hr-need" style="font-size: 24px; font-weight: 900; color: #1b7a3d; margin: 8px 0;"></div>
+</div>
+<div style="background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; border-top: 4px solid #d4a745;">
+<div style="font-size: 12px; font-weight: bold; color: #666; text-transform: uppercase;">Monthly Savings</div>
+<div id="hr-monthly" style="font-size: 24px; font-weight: 900; color: #d4a745; margin: 8px 0;"></div>
+</div>
+<div style="background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; border-top: 4px solid #145a2e;">
+<div style="font-size: 12px; font-weight: bold; color: #666; text-transform: uppercase;">Yearly Savings</div>
+<div id="hr-yearly" style="font-size: 24px; font-weight: 900; color: #145a2e; margin: 8px 0;"></div>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+<div style="background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;">
+<div style="font-size: 12px; font-weight: bold; color: #666; text-transform: uppercase;">Weekly Savings</div>
+<div id="hr-weekly" style="font-size: 22px; font-weight: 900; color: #1b7a3d; margin: 8px 0;"></div>
+</div>
+<div style="background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;">
+<div style="font-size: 12px; font-weight: bold; color: #666; text-transform: uppercase;">Daily Savings</div>
+<div id="hr-daily" style="font-size: 22px; font-weight: 900; color: #1b7a3d; margin: 8px 0;"></div>
+</div>
+</div>
+<div style="background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 20px;">
+<h4 style="margin: 0 0 15px; font-size: 16px; font-weight: 800; color: #1b7a3d;">Cost Breakdown</h4>
+<div id="hr-breakdown"></div>
+</div>
+<div style="background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 20px;">
+<h4 style="margin: 0 0 15px; font-size: 16px; font-weight: 800; color: #1b7a3d;">Year-by-Year Savings Progress</h4>
+<div id="hr-timeline"></div>
+</div>
+<div style="background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+<h4 style="margin: 0 0 15px; font-size: 16px; font-weight: 800; color: #1b7a3d;">Formula Used</h4>
+<div id="hr-formula" style="font-family: monospace; font-size: 14px; line-height: 2; color: #333;"></div>
+</div>
+<div style="font-size: 12px; color: #999; font-style: italic; text-align: center; margin-top: 15px;">Reference: Quran 3:97 — "And Hajj to the House is a duty that mankind owes to Allah, for those who are able to find a way."</div>
+</div>
+</div>
+<div style="background: linear-gradient(135deg,#1b7a3d,#228B22); border-radius: 15px; padding: 30px; color: #fff; text-align: center; margin: 25px 0;">
+<div style="font-size: 28px; font-weight: 900; margin-bottom: 8px;">Reverse Calculator</div>
+<div style="font-size: 14px; opacity: 0.85;">Enter how much you CAN save monthly — find out when you can afford Hajj</div>
+</div>
+<div style="background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 25px;">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">Your Monthly Savings Capacity</label> <input id="rev-monthly" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; box-sizing: border-box;" min="1000" type="number" value="30000"></div>
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">Total Hajj Cost Target</label> <input id="rev-target" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; box-sizing: border-box;" type="number" value="1200000"></div>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">Already Saved</label> <input id="rev-saved" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; box-sizing: border-box;" min="0" type="number" value="0"></div>
+<div style="margin-bottom: 15px;"><label style="display: block; font-weight: bold; font-size: 13px; color: #333; margin-bottom: 6px;">العملة</label><select id="rev-currency" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 15px; background: #fff; box-sizing: border-box;">
+<option selected="selected" value="PKR">الروبية الباكستانية</option>
+<option value="INR">INR</option>
+<option value="USD">دولار أمريكي</option>
+<option value="GBP">جنيه إسترليني</option>
+<option value="AED">درهم إماراتي</option>
+<option value="SAR">بالريال السعودي</option>
+</select></div>
+</div>
+<button style="width: 100%; padding: 14px; background: #d4a745; color: #000; border: none; border-radius: 10px; font-size: 16px; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 1px;">CALCULATE TIMELINE</button>
+<div id="rev-result" style="margin-top: 20px; padding: 25px; background: linear-gradient(135deg,#f0faf3,#e8f5e9); border-radius: 12px; border: 2px solid #1b7a3d; text-align: center; display: none;">
+<div style="font-size: 14px; font-weight: bold; color: #145a2e;">You Can Afford Hajj In</div>
+<div id="rev-time" style="font-size: 36px; font-weight: 900; color: #1b7a3d; margin: 10px 0;"></div>
+<div id="rev-detail" style="font-size: 13px; color: #666; margin-top: 5px;"></div>
+<div id="rev-target-date" style="font-size: 15px; font-weight: bold; color: #145a2e; margin-top: 10px;"></div>
+</div>
+</div>
+<h2>Estimated Hajj Costs by Country (2026)</h2>
+<p>Below are approximate Hajj package costs for 2026 from different countries. Actual costs vary significantly based on the tour operator, package level, hotel proximity to Haram, flight class, and services included.</p>
+<table>
+<tbody>
+<tr>
+<th>البلد</th>
+<th>العملة</th>
+<th>Economy</th>
+<th>Standard</th>
+<th>Premium</th>
+<th>VIP</th>
+</tr>
+<tr>
+<td><strong>باكستان</strong></td>
+<td>الروبية الباكستانية</td>
+<td>9,00,000</td>
+<td>12,00,000</td>
+<td>18,00,000</td>
+<td>30,00,000</td>
+</tr>
+<tr>
+<td><strong>الهند</strong></td>
+<td>INR</td>
+<td>4,00,000</td>
+<td>6,00,000</td>
+<td>10,00,000</td>
+<td>18,00,000</td>
+</tr>
+<tr>
+<td><strong>الولايات المتحدة الأمريكية</strong></td>
+<td>دولار أمريكي</td>
+<td>7,000</td>
+<td>10,000</td>
+<td>15,000</td>
+<td>25,000</td>
+</tr>
+<tr>
+<td><strong>UK</strong></td>
+<td>جنيه إسترليني</td>
+<td>5,500</td>
+<td>8,000</td>
+<td>12,000</td>
+<td>20,000</td>
+</tr>
+<tr>
+<td><strong>الإمارات العربية المتحدة</strong></td>
+<td>درهم إماراتي</td>
+<td>18,000</td>
+<td>25,000</td>
+<td>40,000</td>
+<td>70,000</td>
+</tr>
+<tr>
+<td><strong>المملكة العربية السعودية</strong></td>
+<td>بالريال السعودي</td>
+<td>8,000</td>
+<td>12,000</td>
+<td>20,000</td>
+<td>35,000</td>
+</tr>
+<tr>
+<td><strong>بنغلاديش</strong></td>
+<td>التاكا البنجلاديشي</td>
+<td>5,00,000</td>
+<td>7,00,000</td>
+<td>12,00,000</td>
+<td>20,00,000</td>
+</tr>
+<tr>
+<td><strong>ﻣﺎﻟﯿﺰﯾﺎ</strong></td>
+<td>رينغيت ماليزي</td>
+<td>22,000</td>
+<td>30,000</td>
+<td>45,000</td>
+<td>75,000</td>
+</tr>
+<tr>
+<td><strong>Europe</strong></td>
+<td>EUR</td>
+<td>5,000</td>
+<td>7,500</td>
+<td>12,000</td>
+<td>20,000</td>
+</tr>
+<tr>
+<td><strong>Canada</strong></td>
+<td>CAD</td>
+<td>9,000</td>
+<td>13,000</td>
+<td>20,000</td>
+<td>30,000</td>
+</tr>
+<tr>
+<td><strong>Australia</strong></td>
+<td>AUD</td>
+<td>12,000</td>
+<td>16,000</td>
+<td>25,000</td>
+<td>40,000</td>
+</tr>
+</tbody>
+</table>
+<h2>What is Included in Hajj Cost</h2>
+<table>
+<tbody>
+<tr>
+<th>Expense Category</th>
+<th>Economy</th>
+<th>Standard</th>
+<th>Premium</th>
+<th>VIP</th>
+</tr>
+<tr>
+<td><strong>Flight</strong></td>
+<td>Economy class</td>
+<td>Economy class</td>
+<td>Business class</td>
+<td>Business / First</td>
+</tr>
+<tr>
+<td><strong>Hotel Makkah</strong></td>
+<td>3-star, 2-3 KM from Haram</td>
+<td>4-star, 1-2 KM</td>
+<td>5-star, 500m</td>
+<td>5-star, Haram view</td>
+</tr>
+<tr>
+<td><strong>Hotel Madinah</strong></td>
+<td>3-star, 1-2 KM</td>
+<td>4-star, near Masjid</td>
+<td>5-star, walking distance</td>
+<td>5-star, Masjid view</td>
+</tr>
+<tr>
+<td><strong>Mina/Arafat</strong></td>
+<td>Standard tent, shared</td>
+<td>AC tent, semi-private</td>
+<td>AC tent, private</td>
+<td>VIP AC tent, private</td>
+</tr>
+<tr>
+<td><strong>Transport</strong></td>
+<td>Shared bus</td>
+<td>AC bus</td>
+<td>AC coach / van</td>
+<td>Private vehicle</td>
+</tr>
+<tr>
+<td><strong>Food</strong></td>
+<td>Basic meals</td>
+<td>3 meals included</td>
+<td>Buffet meals</td>
+<td>Premium buffet</td>
+</tr>
+<tr>
+<td><strong>Visa + Insurance</strong></td>
+<td>Included</td>
+<td>Included</td>
+<td>Included</td>
+<td>Included + medical</td>
+</tr>
+<tr>
+<td><strong>Qurbani</strong></td>
+<td>Not included</td>
+<td>Included</td>
+<td>Included</td>
+<td>Included + extra</td>
+</tr>
+<tr>
+<td><strong>Guide/Scholar</strong></td>
+<td>Group guide</td>
+<td>Experienced guide</td>
+<td>Scholar guide</td>
+<td>Personal scholar</td>
+</tr>
+<tr>
+<td><strong>Duration</strong></td>
+<td>15-20 days</td>
+<td>20-25 days</td>
+<td>25-30 days</td>
+<td>30-40 days</td>
+</tr>
+</tbody>
+</table>
+<h2>Additional Expenses to Budget For</h2>
+<table>
+<tbody>
+<tr>
+<th>Expense</th>
+<th>Estimated Cost (PKR)</th>
+<th>Notes</th>
+</tr>
+<tr>
+<td>Ihram clothing</td>
+<td>2,000 - 5,000</td>
+<td>2 white sheets for men, normal clothes for women</td>
+</tr>
+<tr>
+<td>Comfortable footwear</td>
+<td>3,000 - 8,000</td>
+<td>Open sandals/slippers for Ihram, walking shoes</td>
+</tr>
+<tr>
+<td>Passport (if new)</td>
+<td>5,000 - 15,000</td>
+<td>Apply well in advance, 6+ months</td>
+</tr>
+<tr>
+<td>Vaccinations</td>
+<td>2,000 - 5,000</td>
+<td>Meningitis vaccine required by Saudi Arabia</td>
+</tr>
+<tr>
+<td>Zamzam containers</td>
+<td>1,000 - 3,000</td>
+<td>To bring Zamzam water home</td>
+</tr>
+<tr>
+<td>Shopping and gifts</td>
+<td>30,000 - 100,000</td>
+<td>Dates, attar, tasbih, prayer mats, gifts for family</td>
+</tr>
+<tr>
+<td>Pocket money</td>
+<td>50,000 - 150,000</td>
+<td>Personal food, drinks, phone, laundry, misc</td>
+</tr>
+<tr>
+<td>Emergency fund</td>
+<td>20,000 - 50,000</td>
+<td>Medical emergency, lost items, unexpected expenses</td>
+</tr>
+<tr>
+<td>Pre-Hajj training</td>
+<td>Free - 5,000</td>
+<td>Most mosques offer free Hajj training sessions</td>
+</tr>
+<tr>
+<td>Photography/Memory</td>
+<td>2,000 - 10,000</td>
+<td>Phone accessories, portable charger, memory cards</td>
+</tr>
+</tbody>
+</table>
+<h2>Hajj Savings Formulas</h2>
+<h3>Basic Savings Formula</h3>
+<div style="background: #f0faf3; padding: 20px; border-radius: 10px; margin: 15px 0; font-family: monospace; font-size: 15px; line-height: 2.2;"><strong style="font-size: 18px; color: #1b7a3d;">M = (C - S) / T</strong><br><br>المكان:<br>M = Monthly savings required<br>C = Total Hajj cost (including inflation and extras)<br>S = Amount already saved<br>T = Number of months until Hajj</div>
+<h3>Cost with Inflation Formula</h3>
+<div style="background: #f0faf3; padding: 20px; border-radius: 10px; margin: 15px 0; font-family: monospace; font-size: 15px; line-height: 2.2;"><strong style="font-size: 18px; color: #1b7a3d;">C<sub>future</sub> = C<sub>today</sub> x (1 + r)<sup>n</sup></strong><br><br>المكان:<br>C<sub>future</sub> = Estimated cost in target year<br>C<sub>today</sub> = Current Hajj cost<br>r = Annual inflation rate (as decimal, e.g. 8% = 0.08)<br>n = Number of years until Hajj</div>
+<h3>Total Cost Formula (Multiple Persons)</h3>
+<div style="background: #f0faf3; padding: 20px; border-radius: 10px; margin: 15px 0; font-family: monospace; font-size: 15px; line-height: 2.2;"><strong style="font-size: 18px; color: #1b7a3d;">C<sub>الإجمالي</sub> = (C<sub>future</sub> x P) x (1 + E/100)</strong><br><br>المكان:<br>P = Number of persons<br>E = Extra expenses percentage (shopping, gifts, misc)</div>
+<h3>Reverse Formula (When Can I Afford)</h3>
+<div style="background: #f0faf3; padding: 20px; border-radius: 10px; margin: 15px 0; font-family: monospace; font-size: 15px; line-height: 2.2;"><strong style="font-size: 18px; color: #1b7a3d;">T<sub>months</sub> = (C - S) / M</strong><br><br>المكان:<br>T = Months needed<br>C = Target total cost<br>S = Already saved<br>M = Monthly saving amount<br><br>T<sub>years</sub> = T<sub>months</sub> / 12</div>
+<h2>Solved Examples</h2>
+<h3>Example 1: Pakistani Couple — Standard Package</h3>
+<p>Husband and wife want to perform Hajj in 2028. Current standard package cost: PKR 12,00,000 per person. Annual inflation: 8%. Already saved: PKR 5,00,000. Extra budget: 10%.</p>
+<div style="background: #f5f5f5; border-radius: 10px; padding: 20px; margin: 15px 0;">
+<div style="background: #fff; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 14px; line-height: 2.2;"><strong>Step 1: Calculate future cost per person</strong><br>Years until 2028: n = 2 (from 2026)<br>C<sub>future</sub> = 12,00,000 x (1 + 0.08)<sup>2</sup><br>C<sub>future</sub> = 12,00,000 x 1.1664<br>C<sub>future</sub> = PKR 13,99,680 per person<br><br><strong>Step 2: Total for 2 persons</strong><br>Subtotal = 13,99,680 x 2 = 27,99,360<br><br><strong>Step 3: Add extras (10%)</strong><br>C<sub>الإجمالي</sub> = 27,99,360 x 1.10 = 30,79,296<br><br><strong>Step 4: Subtract already saved</strong><br>Need = 30,79,296 - 5,00,000 = 25,79,296<br><br><strong>Step 5: Monthly savings</strong><br>Months = 2 years x 12 = 24 months<br>Monthly = 25,79,296 / 24<br><strong style="color: #1b7a3d; font-size: 18px;">Monthly Savings = PKR 1,07,471</strong><br><br>Yearly = 1,07,471 x 12 = PKR 12,89,648<br>Weekly = 1,07,471 / 4.33 = PKR 24,820<br>Daily = 1,07,471 / 30 = PKR 3,582</div>
+</div>
+<h3>Example 2: Indian Family — Economy Package</h3>
+<p>Family of 3 (husband, wife, elderly father). Target: 2029. Economy package: INR 4,00,000. Inflation: 10%. Saved: INR 2,00,000. Extras: 15%.</p>
+<div style="background: #f5f5f5; border-radius: 10px; padding: 20px; margin: 15px 0;">
+<div style="background: #fff; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 14px; line-height: 2.2;">n = 3 years<br>C<sub>future</sub> = 4,00,000 x (1.10)<sup>3</sup> = 4,00,000 x 1.331 = INR 5,32,400<br>Subtotal = 5,32,400 x 3 = 15,97,200<br>With extras = 15,97,200 x 1.15 = 18,36,780<br>Need = 18,36,780 - 2,00,000 = 16,36,780<br>Months = 36<br><strong style="color: #1b7a3d; font-size: 18px;">Monthly = INR 45,466</strong></div>
+</div>
+<h3>Example 3: USA — Premium Package, Solo</h3>
+<p>Single person. Target: 2027. Premium: $15,000. Inflation: 5%. Saved: $3,000. Extras: 20%.</p>
+<div style="background: #f5f5f5; border-radius: 10px; padding: 20px; margin: 15px 0;">
+<div style="background: #fff; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 14px; line-height: 2.2;">n = 1 year<br>C<sub>future</sub> = 15,000 x (1.05)<sup>1</sup> = $15,750<br>With extras = 15,750 x 1.20 = $18,900<br>Need = 18,900 - 3,000 = $15,900<br>Months = 12<br><strong style="color: #1b7a3d; font-size: 18px;">Monthly = $1,325</strong><br>Weekly = $306 | Daily = $44</div>
+</div>
+<h3>Example 4: Reverse — When Can I Afford Hajj?</h3>
+<p>Monthly saving capacity: PKR 25,000. Target: PKR 14,00,000. Already saved: PKR 2,00,000.</p>
+<div style="background: #f5f5f5; border-radius: 10px; padding: 20px; margin: 15px 0;">
+<div style="background: #fff; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 14px; line-height: 2.2;">Need = 14,00,000 - 2,00,000 = 12,00,000<br>T = 12,00,000 / 25,000 = 48 months<br><strong style="color: #1b7a3d; font-size: 18px;">T = 4 years (48 months)</strong><br><br>Target date: Mid 2030<br>Hajj season 2030: approximately July 2030</div>
+</div>
+<h2>Hajj Savings Tips</h2>
+<p><strong>1. Start Early:</strong> The earlier you start saving, the smaller the monthly amount. Starting 5 years early vs 2 years makes a huge difference in monthly burden.</p>
+<p><strong>2. Open a Dedicated Account:</strong> Keep Hajj savings separate from daily spending. Many banks offer Hajj savings accounts with profit-sharing (Islamic banking).</p>
+<p><strong>3. Account for Inflation:</strong> Hajj costs increase 5-15% every year. Always calculate with inflation to avoid a shortfall at the end.</p>
+<p><strong>4. Budget for Extras:</strong> Tour package is not the only cost. Shopping, gifts, Zamzam, pocket money, and emergencies can add 10-30% on top.</p>
+<p><strong>5. Book Early:</strong> Many operators give early bird discounts. Government schemes are usually cheaper but spots fill up fast.</p>
+<p><strong>6. Compare Packages:</strong> Get quotes from at least 3-5 operators. Check reviews, verify hotel proximity to Haram, and confirm all inclusions in writing.</p>
+<p><strong>7. Pay Debts First:</strong> According to many scholars, paying off debts is priority over Hajj. Hajj is Farz only when you can afford it without financial hardship.</p>
+<p><strong>8. Government Schemes:</strong> Pakistan (Ministry of Religious Affairs), India (Hajj Committee), and other countries offer subsidized Hajj packages. Apply early as spaces are limited.</p>
+<p><strong>9. Health Preparation:</strong> If you are elderly or have health conditions, budget for medical insurance and medications. Hajj is physically demanding — prepare your body months in advance.</p>
+<p><strong>10. Automatic Savings:</strong> Set up automatic monthly transfer to your Hajj savings account on salary day. What you do not see, you do not spend.</p>
+<h2>When is Hajj Farz (Obligatory)?</h2>
+<p>Hajj becomes Farz when ALL of these conditions are met:</p>
+<table>
+<tbody>
+<tr>
+<th>Condition</th>
+<th>التفصيل</th>
+</tr>
+<tr>
+<td><strong>Muslim</strong></td>
+<td>Must be a Muslim</td>
+</tr>
+<tr>
+<td><strong>Adult (Baligh)</strong></td>
+<td>Must have reached puberty. Child can perform Hajj but it does not count as Farz Hajj — they must repeat it as an adult.</td>
+</tr>
+<tr>
+<td><strong>Sane (Aqil)</strong></td>
+<td>Must be mentally sound</td>
+</tr>
+<tr>
+<td><strong>Free</strong></td>
+<td>Must not be enslaved (relevant historically)</td>
+</tr>
+<tr>
+<td><strong>Financial Ability (Istita'ah)</strong></td>
+<td>Must have enough wealth to cover: round-trip travel, Hajj expenses, AND leave enough for family's needs during absence. Must not go into debt for Hajj.</td>
+</tr>
+<tr>
+<td><strong>Physical Ability</strong></td>
+<td>Must be physically capable of performing Hajj rituals. If permanently unable, can send someone as Hajj Badal (proxy).</td>
+</tr>
+<tr>
+<td><strong>Safe Route</strong></td>
+<td>The travel route must be safe. If war, pandemic, or danger exists, Hajj obligation is postponed.</td>
+</tr>
+<tr>
+<td><strong>Mahram (for women)</strong></td>
+<td>A woman must have a Mahram (husband or male relative she cannot marry) to accompany her. Some scholars allow group travel for women over 45 without Mahram.</td>
+</tr>
+</tbody>
+</table>
+<blockquote><strong>Allah says in the Quran:</strong> "And Hajj (pilgrimage to Makkah) to the House (Ka'bah) is a duty that mankind owes to Allah, those who can afford the expenses (for one's conveyance, provision and residence). And whoever disbelieves (i.e. denies Hajj), then Allah stands not in need of any of the creation." <br><br><em>— Surah Aal-e-Imran 3:97</em></blockquote>
+<blockquote><strong>The Prophet (PBUH) said:</strong> "Whoever performs Hajj for the sake of Allah and does not commit any obscenity or commit any evil will go back (free of sin) as on the day his mother bore him." <br><br><em>— Sahih Bukhari 1521, Sahih Muslim 1350</em></blockquote>
+<blockquote><strong>The Prophet (PBUH) said:</strong> "An accepted Hajj has no reward except Paradise." <br><br><em>— Sahih Bukhari 1773, Sahih Muslim 1349</em></blockquote>
+<h2>Frequently Asked Questions</h2>
+<p><strong>Q: Is it permissible to take a loan for Hajj?</strong></p>
+<p>A: Most scholars say Hajj is NOT Farz on someone who cannot afford it. Taking a loan for Hajj is discouraged. Pay off existing debts first, then save for Hajj. If you take a loan, Hajj is valid but it is better to wait until you can afford it.</p>
+<p><strong>Q: Can I save in a bank savings account for Hajj?</strong></p>
+<p>A: If using conventional banking, the interest (riba) earned is not permissible. Use an Islamic bank's Hajj savings account which operates on profit-sharing (Mudarabah/Musharakah) principles. Many Islamic banks in Pakistan, India, and UAE offer Hajj-specific accounts.</p>
+<p><strong>Q: My parents want to go but cannot afford it. Can I pay for them?</strong></p>
+<p>A: Yes, this is a great act of kindness (birr al-walidayn). You can pay for your parents' Hajj. The Hajj is valid and you earn enormous reward for serving your parents.</p>
+<p><strong>Q: What if I save enough but the cost increases beyond my savings?</strong></p>
+<p>A: This is why we include inflation in our calculator. Always save with a buffer of 10-20% above the estimated cost. If costs still exceed savings, Hajj obligation is postponed until you can afford it.</p>
+<p><strong>Q: How far in advance should I start planning?</strong></p>
+<p>A: Ideally 3-5 years in advance for financial planning. For the actual trip, start booking 6-12 months before Hajj season. Apply for government schemes 8-12 months before.</p>
+<p><strong>Q: Is Hajj Farz every year?</strong></p>
+<p>A: No. Hajj is Farz only ONCE in a lifetime. After performing Farz Hajj, any additional Hajj is Nafl (voluntary) and earns extra reward but is not obligatory.</p>
+<div style="background: #fff3e0; border: 2px solid #ff9800; border-radius: 12px; padding: 20px; margin: 25px 0;">
+<h3 style="color: #e65100; margin-top: 0;">إخلاء مسؤولية مهم</h3>
+<p style="font-size: 13px; line-height: 1.7;">All costs shown are estimates for 2026 and are subject to change based on government policies, airline prices, hotel rates, exchange rates, and Saudi Arabia regulations. This calculator is for planning and educational purposes only. Always verify current Hajj package costs with registered tour operators and government Hajj schemes in your country before making financial commitments.</p>
+<p style="font-size: 13px; line-height: 1.7; margin-bottom: 0;"><strong>Quranic Reference:</strong> Surah Aal-e-Imran 3:97 | Surah Al-Baqarah 2:196-203<br><strong>Hadith:</strong> Sahih Bukhari 1521, 1773 | Sahih Muslim 1349, 1350 | Sunan Abu Dawud | Sunan Ibn Majah</p>
+</div>
